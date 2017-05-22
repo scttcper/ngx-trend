@@ -6,6 +6,18 @@ import { Component, OnChanges, Input } from '@angular/core';
   template: `
   <div class="trendCode">
     <pre style="display: block; overflow-x: auto; padding: 0.5em; background: white; color: black;">
+// app.module.ts
+import {{ '{' }} NgModule } from '@angular/core';
+import {{ '{' }} TrendModule } from 'ngx-trend';
+
+@NgModule({{ '{' }}
+  imports: [
+    TrendModule,
+  ],
+})
+export class AppModule {{ '{' }} }
+    </pre>
+    <pre style="display: block; overflow-x: auto; padding: 0.5em; background: white; color: black;">
       {{codeString}}
     </pre>
   </div>
@@ -29,6 +41,7 @@ export class TrendCodeComponent implements OnChanges {
 
   ngOnChanges() {
     this.codeString = `
+// your.component.ts
 import { Component } from '@angular/core';
 
 @Component({
