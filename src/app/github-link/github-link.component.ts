@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
     class="githubLink {{className}}"
     [href]="href(username, repo)"
   >
-    <img alt="Github mark" src="/assets/github-icon.svg" />
+    <img alt="Github mark" src="./assets/github-icon.svg" />
   </a>
   `,
 })
