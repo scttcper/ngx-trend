@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, Input, OnChanges, ViewChild, Renderer2, ElementRef } from '@angular/core';
 
 import {
   buildSmoothPath,
@@ -10,25 +10,42 @@ import { generateId } from '../../helpers/misc.helpers';
 import { normalizeDataset, generateAutoDrawCss } from './Trend.helpers';
 
 @Component({
-  selector: 'Trend',
+  selector: 'ngx-trend',
   template: `
   <svg
     #svg
-    [style.width.%]="svgWidth"
-    [style.height.%]="svgHeight"
-    [attr.radius]="radius"
+    [attr.width]="svgWidth"
+    [attr.height]="svgHeight"
     [attr.stroke]="stroke"
     [attr.stroke-width]="strokeWidth"
+    [attr.stroke-linecap]="strokeLinecap"
   >
+  <defs *ngIf="gradient">
+    <linearGradient
+      [attr.id]="gradientId"
+      x1="0%"
+      y1="0%"
+      x2="0%"
+      y2="100%"
+    >
+    <stop
+      *ngFor="let c of gradient.slice().reverse(); let idx = index;"
+      [attr.key]="idx"
+      [attr.offset]="normalize(idx)"
+      [attr.stop-color]="c"
+    />
+    </linearGradient>
+  </defs>
   <path
+    [attr.id]="'react-trend-' + trendId"
     fill="none"
     [attr.d]="path"
-    [attr.stroke]="gradient"
+    [attr.stroke]="generateStroke(gradient)"
   />
   </svg>
   `,
 })
-export class TrendComponent implements OnInit, OnChanges {
+export class TrendComponent implements OnChanges {
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
   @Input() autoDraw = false;
@@ -39,16 +56,43 @@ export class TrendComponent implements OnInit, OnChanges {
   @Input() padding = 8;
   @Input() radius = 10;
   @Input() stroke = 'black';
+  @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
   @Input() gradient: string[];
   @ViewChild('svg') svg: ElementRef;
+  trendId: number;
+  gradientId = '';
   path: any;
   viewBoxWidth = 300;
   viewBoxHeight = 75;
-  svgWidth = 100;
-  svgHeight = 25;
-  constructor(private renderer: Renderer2) {}
-  ngOnInit() {
+  svgWidth: string | number = '100%';
+  svgHeight: string | number = '25%';
+  constructor(private renderer: Renderer2) {
+    // Generate a random ID. This is important for distinguishing between
+    // Trend components on a page, so that they can have different keyframe
+    // animations.
+    this.trendId = generateId();
+    this.gradientId = `ngx-trend-vertical-gradient-${this.trendId}`;
+  }
+  normalize(index) {
+    return normalize({
+      value: index,
+      min: 0,
+      max: this.gradient.length - 1 || 1,
+    });
+  }
+  generateStroke(gradient) {
+    return gradient ? `url(#${this.gradientId})` : undefined;
+  }
+  ngOnChanges() {
+    this.setup();
+  }
+  setup() {
+    // We need at least 2 points to draw a graph.
+    if (!this.data || this.data.length < 2) {
+      return null;
+    }
+
     // `data` can either be an array of numbers:
     // [1, 2, 3]
     // or, an array of objects containing a value:
@@ -69,8 +113,8 @@ export class TrendComponent implements OnInit, OnChanges {
     // container, preserving a 1/4 aspect ratio.
     this.viewBoxWidth = this.width || 300;
     this.viewBoxHeight = this.height || 75;
-    this.svgWidth = this.width || 100;
-    this.svgHeight = this.height || 25;
+    this.svgWidth = this.width || '100%';
+    this.svgHeight = this.height || '25%';
 
     const normalizedValues = normalizeDataset(plainValues, {
       minX: this.padding,
@@ -91,8 +135,4 @@ export class TrendComponent implements OnInit, OnChanges {
       `0 0 ${this.viewBoxWidth} ${this.viewBoxHeight}`
     );
   }
-  ngOnChanges() {
-    // TODO
-  }
-
 }
