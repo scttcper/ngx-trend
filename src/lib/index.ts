@@ -1,1 +1,1 @@
-export * from './components/trend';
+export * from './trend';

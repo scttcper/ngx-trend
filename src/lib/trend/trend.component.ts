@@ -12,9 +12,9 @@ import {
   buildSmoothPath,
   buildLinearPath,
   injectStyleTag,
-} from '../../helpers/DOM.helpers';
-import { normalize } from '../../helpers/math.helpers';
-import { generateId } from '../../helpers/misc.helpers';
+} from '../helpers/DOM.helpers';
+import { normalize } from '../helpers/math.helpers';
+import { generateId } from '../helpers/misc.helpers';
 import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
 
 @Component({

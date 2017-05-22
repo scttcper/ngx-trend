@@ -1,4 +1,4 @@
-import { normalize } from '../../helpers/math.helpers';
+import { normalize } from '../helpers/math.helpers';
 
 export const normalizeDataset = (data, { minX, maxX, minY, maxY }) => {
   // For the X axis, we want to normalize it based on its index in the array.
