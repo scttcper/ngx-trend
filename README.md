@@ -9,21 +9,7 @@
 <br>
 <br>
 <br>
-Graphing tools are often complex, abstract, and heavy. They require domain-specific knowledge, and a significant time investment.
-
-While building rich data visualizations for an analytics app, this is a necessary cost. But what if you just need a spark line that shows a trend?
-
-For example, here's how GitHub shows activity on a repo:
-
-<img src="https://raw.githubusercontent.com/scttcper/ngx-trend/master/misc/documentation-assets/gh-trend.png" width="300" />
-
-Here's how Twitter displays your recent analytics:
-
-<img src="https://raw.githubusercontent.com/scttcper/ngx-trend/master/misc/documentation-assets/tw-trend.png" width="300" />
-
-These are very simple and elegant visualizations, and they should not require a bloated graphing library to produce.
-
-Angular Trend is a concrete component that does 1 thing, and does it well: generate these trending graphs.
+This is a port of the [react-trend](https://github.com/unsplash/react-trend) library by [unsplash](https://unsplash.com).
 
 
 ## Demo
@@ -109,7 +95,7 @@ Allow the line to draw itself on mount. Set to `true` to enable, and customize u
 **NOTE**: This property uses `strokeDasharray` and `strokeDashoffset` under the hood to perform the animation. Because of this, any values you provide for those properties will be ignored.
 
 ###### Example
-```js
+```ts
 <ngx-trend
   [data]="data"
   autoDraw="true"
@@ -129,7 +115,7 @@ The amount of time, in milliseconds, that the autoDraw animation should span.
 This prop has no effect if `autoDraw` isn't set to `true`.
 
 ###### Example
-```js
+```ts
 <ngx-trend
   [data]="data"
   autoDraw="true"
@@ -149,7 +135,7 @@ The easing function to use for the autoDraw animation. Accepts any transition ti
 This prop has no effect if `autoDraw` isn't set to `true`.
 
 ###### Example
-```js
+```ts
 <ngx-trend
   [data]="data"
   autoDraw="true"
@@ -173,7 +159,7 @@ This does mean that all data points will be evenly-spaced. If you have irregular
 As of v1.2.0, you may supply an array of data objects with a `value` property.
 
 ###### Example
-```js
+```ts
 <ngx-trend [data]="[120, 149, 193.4, 200, 92]"></ngx-trend>
 <ngx-trend [data]="[{ value: 4 }, { value: 6 }, { value: 8 }]"></ngx-trend>
 ```
@@ -189,7 +175,7 @@ React Trend supports vertical gradients. It accepts an array of 2+ colour values
 Colour can be specified as any SVG-supported format (named, rgb, hex, etc).
 
 ###### Example
-```js
+```ts
 <ngx-trend [gradient]="['#0FF', '#F0F', '#FF0']"></ngx-trend>
 ```
 
@@ -205,7 +191,7 @@ Set an explicit height for your SVG. By default it ensures a 1:4 aspect ratio wi
 Note that in _most_ cases it is sufficient to leave this blank, and just control the size of the parent container.
 
 ###### Example
-```js
+```ts
 <ngx-trend width="200" height="200"></ngx-trend>
 ```
 
@@ -222,7 +208,7 @@ By increasing this number, you expand the space around the line, so that very th
 In most cases you don't need to touch this value.
 
 ###### Example
-```js
+```ts
 <ngx-trend strokeWidth="20" padding="18"></ngx-trend>
 ```
 
@@ -237,7 +223,7 @@ When using [smoothing](#smooth), you may wish to control the amount of curve aro
 This prop has no effect if `smooth` isn't set to `true`.
 
 ###### Example
-```js
+```ts
 <ngx-trend smooth="true" radius="20" strokeWidth="4"></ngx-trend>
 ```
 
@@ -252,7 +238,7 @@ Smooth allows the peaks to be 'rounded' out so that the line has no jagged edges
 By tweaking the [radius](#radius) prop, you can use this as a subtle prop to tone down the sharpness, or you can set a very high radius to create a snake-like line.
 
 ###### Example
-```js
+```ts
 <ngx-trend smooth="true" radius="20" strokeWidth="4"></ngx-trend>
 ```
 
@@ -267,6 +253,6 @@ Set an explicit width for your SVG. By default it ensures a 1:4 aspect ratio wit
 Note that in _most_ cases it is sufficient to leave this blank, and just control the width of the parent container.
 
 ###### Example
-```js
+```ts
 <ngx-trend width="200" height="200"></ngx-trend>
 ```
