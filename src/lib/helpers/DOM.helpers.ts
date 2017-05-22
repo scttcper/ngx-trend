@@ -53,8 +53,8 @@ export const buildSmoothPath = (data, { radius }) => {
 let styleTag;
 export const injectStyleTag = (cssContents) => {
   if (styleTag == null) {
-    // Try to find a style tag with the `data-react-trend` attribute first.
-    styleTag = document.querySelector('style[data-react-trend]');
+    // Try to find a style tag with the `data-ngx-trend` attribute first.
+    styleTag = document.querySelector('style[data-ngx-trend]');
 
     // If that doesn't work, generate a new style tag.
     if (styleTag == null) {
@@ -64,7 +64,7 @@ export const injectStyleTag = (cssContents) => {
       styleTag = document.createElement('style');
 
       styleTag.type = 'text/css';
-      styleTag.setAttribute('data-react-trend', '');
+      styleTag.setAttribute('data-ngx-trend', '');
       head.appendChild(styleTag);
     }
   }

@@ -8,14 +8,16 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cleanup": "rimraf build dist waste deploy",
+    "ghpages": "ng build --prod --aot --no-progress --baseHref='/ngx-trend/'"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^4.2.0-rc.0",
     "@angular/common": "^4.2.0-rc.0",
     "@angular/compiler": "^4.2.0-rc.0",
     "@angular/core": "^4.2.0-rc.0",
+    "@angular/forms": "^4.2.0-rc.0",
     "@angular/platform-browser": "^4.2.0-rc.0",
     "@angular/platform-browser-dynamic": "^4.2.0-rc.0",
     "@angular/router": "^4.2.0-rc.0",
@@ -41,6 +43,9 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-sourcemaps": "^0.4.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.2.0",
     "typescript": "~2.3.2"

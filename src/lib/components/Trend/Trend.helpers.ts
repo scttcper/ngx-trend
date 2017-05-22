@@ -47,7 +47,7 @@ export const generateAutoDrawCss = ({ id, lineLength, duration, easing }) => {
   // We do the animation using the dash array/offset trick
   // https://css-tricks.com/svg-line-animation-works/
   const autodrawKeyframeAnimation = `
-    @keyframes react-trend-autodraw-${id} {
+    @keyframes ngx-trend-autodraw-${id} {
       0% {
         stroke-dasharray: ${lineLength};
         stroke-dashoffset: ${lineLength}
@@ -69,7 +69,7 @@ export const generateAutoDrawCss = ({ id, lineLength, duration, easing }) => {
   // be the same length anymore. We can fix that by removing those
   // properties once the auto-draw is completed.
   const cleanupKeyframeAnimation = `
-    @keyframes react-trend-autodraw-cleanup-${id} {
+    @keyframes ngx-trend-autodraw-cleanup-${id} {
       to {
         stroke-dasharray: '';
         stroke-dashoffset: '';
@@ -82,10 +82,10 @@ export const generateAutoDrawCss = ({ id, lineLength, duration, easing }) => {
 
     ${cleanupKeyframeAnimation}
 
-    #react-trend-${id} {
+    #ngx-trend-${id} {
       animation:
-        react-trend-autodraw-${id} ${duration}ms ${easing},
-        react-trend-autodraw-cleanup-${id} 1ms ${duration}ms
+        ngx-trend-autodraw-${id} ${duration}ms ${easing},
+        ngx-trend-autodraw-cleanup-${id} 1ms ${duration}ms
       ;
     }
   `;

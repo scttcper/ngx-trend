@@ -75,7 +75,7 @@ describe('DOM Helpers', () => {
         const css = 'h1 { font-size: 28px; }';
         injectStyleTag(css);
 
-        const expectedResult = `<style type="text/css" data-react-trend="">${css}</style>`;
+        const expectedResult = `<style type="text/css" data-ngx-trend="">${css}</style>`;
         const actualResult = document.querySelector('style').outerHTML;
 
         expect(actualResult).toEqual(expectedResult);
@@ -89,7 +89,7 @@ describe('DOM Helpers', () => {
 
         const mergedCss = `h1 { font-size: 28px; }${css}`;
 
-        const expectedResult = `<style type="text/css" data-react-trend="">${mergedCss}</style>`;
+        const expectedResult = `<style type="text/css" data-ngx-trend="">${mergedCss}</style>`;
         const actualResult = document.querySelector('style').outerHTML;
 
         expect(actualResult).toEqual(expectedResult);

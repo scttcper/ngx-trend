@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'github-link',
@@ -19,18 +19,14 @@ import { Component, OnInit, Input } from '@angular/core';
   </a>
   `,
 })
-export class GithubLinkComponent implements OnInit {
+export class GithubLinkComponent {
   @Input() className = '';
-  @Input() username = 'unsplash';
-  @Input() repo = 'react-trend';
+  @Input() username = 'scttcper';
+  @Input() repo = 'ngx-trend';
   // githubIcon = githubIcon;
   constructor() { }
 
   href(username, repo) {
     return `https://github.com/${username}/${repo}`;
   }
-
-  ngOnInit() {
-  }
-
 }

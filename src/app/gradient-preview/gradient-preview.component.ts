@@ -35,7 +35,7 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 export class GradientPreviewComponent implements OnInit {
   @Input() gradient: string[];
   @Input() isActive: boolean;
-  @Input() handleUpdate: EventEmitter<string>;
+  @Input() handleUpdate: EventEmitter<any>;
   background = '';
 
   constructor() { }

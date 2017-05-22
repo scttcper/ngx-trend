@@ -17,7 +17,7 @@ import {
 } from '../../helpers/DOM.helpers';
 import { normalize } from '../../helpers/math.helpers';
 import { generateId } from '../../helpers/misc.helpers';
-import { normalizeDataset, generateAutoDrawCss } from './Trend.helpers';
+import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
 
 @Component({
   selector: 'ngx-trend',
@@ -48,7 +48,7 @@ import { normalizeDataset, generateAutoDrawCss } from './Trend.helpers';
   </defs>
   <path
     #pathEl
-    [attr.id]="'react-trend-' + trendId"
+    [attr.id]="'ngx-trend-' + trendId"
     fill="none"
     [attr.d]="path"
     [attr.stroke]="generateStroke(gradient)"
