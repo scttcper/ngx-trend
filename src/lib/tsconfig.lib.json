@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "noImplicitAny": false,
     "outDir": "../../deploy",
     "sourceMap": false,
     "target": "es5",
@@ -16,7 +17,7 @@
   "angularCompilerOptions": {
     "genDir": "../../waste"
   },
-  "files": [
-    "./index.ts"
+  "includes": [
+    "./*"
   ]
 }

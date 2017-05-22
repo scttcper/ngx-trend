@@ -5,8 +5,6 @@ import {
   ViewChild,
   Renderer2,
   ElementRef,
-  OnInit,
-  HostBinding,
   AfterViewInit,
 } from '@angular/core';
 
@@ -56,7 +54,7 @@ import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
   </svg>
   `,
 })
-export class TrendComponent implements OnInit, OnChanges, AfterViewInit {
+export class TrendComponent implements OnChanges, AfterViewInit {
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
   @Input() autoDraw = false;
@@ -89,17 +87,15 @@ export class TrendComponent implements OnInit, OnChanges, AfterViewInit {
     this.trendId = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.trendId}`;
   }
-  normalize(index) {
+  normalize(index: number) {
     return normalize({
       value: index,
       min: 0,
       max: this.gradient.length - 1 || 1,
     });
   }
-  generateStroke(gradient) {
+  generateStroke(gradient: string[]) {
     return gradient ? `url(#${this.gradientId})` : undefined;
-  }
-  ngOnInit() {
   }
   ngOnChanges() {
     this.setup();
@@ -118,7 +114,7 @@ export class TrendComponent implements OnInit, OnChanges, AfterViewInit {
       injectStyleTag(css);
     }
   }
-  setup() {
+  setup(): void {
     // We need at least 2 points to draw a graph.
     if (!this.data || this.data.length < 2) {
       return null;

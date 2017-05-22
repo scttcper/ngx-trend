@@ -1,4 +1,5 @@
 const sourcemaps = require('rollup-plugin-sourcemaps');
+import resolve from 'rollup-plugin-node-resolve';
 
 export default {
   entry: './deploy/index.js',
@@ -9,14 +10,15 @@ export default {
   globals: {
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
-    '@angular/platform-browser': 'ng.platformBrowser',
+    '@angular/platform-browser': 'ng.platformBrowser'
   },
   external: [
     '@angular/core',
     '@angular/common',
-    '@angular/platform-browser',
+    '@angular/platform-browser'
   ],
   plugins: [
+    resolve({ module: true }),
     sourcemaps()
   ]
 };
