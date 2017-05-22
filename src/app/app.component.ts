@@ -22,7 +22,7 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
     <demo-header></demo-header>
     <github-link class="cornerGithubLink"></github-link>
     <ngx-trend
-      autoDraw
+      autoDraw="true"
       autoDrawDuration="3000"
       autoDrawEasing="ease-out"
       smooth="true"

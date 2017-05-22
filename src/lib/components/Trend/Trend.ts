@@ -1,4 +1,14 @@
-import { Component, Input, OnChanges, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  ViewChild,
+  Renderer2,
+  ElementRef,
+  OnInit,
+  HostBinding,
+  AfterViewInit,
+} from '@angular/core';
 
 import {
   buildSmoothPath,
@@ -37,6 +47,7 @@ import { normalizeDataset, generateAutoDrawCss } from './Trend.helpers';
     </linearGradient>
   </defs>
   <path
+    #pathEl
     [attr.id]="'react-trend-' + trendId"
     fill="none"
     [attr.d]="path"
@@ -45,7 +56,7 @@ import { normalizeDataset, generateAutoDrawCss } from './Trend.helpers';
   </svg>
   `,
 })
-export class TrendComponent implements OnChanges {
+export class TrendComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
   @Input() autoDraw = false;
@@ -60,6 +71,7 @@ export class TrendComponent implements OnChanges {
   @Input() strokeWidth = 1;
   @Input() gradient: string[];
   @ViewChild('svg') svg: ElementRef;
+  @ViewChild('pathEl') pathEl: ElementRef;
   trendId: number;
   gradientId = '';
   path: any;
@@ -67,7 +79,10 @@ export class TrendComponent implements OnChanges {
   viewBoxHeight = 75;
   svgWidth: string | number = '100%';
   svgHeight: string | number = '25%';
-  constructor(private renderer: Renderer2) {
+  lineLength: number;
+  constructor(
+    private renderer: Renderer2
+  ) {
     // Generate a random ID. This is important for distinguishing between
     // Trend components on a page, so that they can have different keyframe
     // animations.
@@ -84,8 +99,24 @@ export class TrendComponent implements OnChanges {
   generateStroke(gradient) {
     return gradient ? `url(#${this.gradientId})` : undefined;
   }
+  ngOnInit() {
+  }
   ngOnChanges() {
     this.setup();
+  }
+  ngAfterViewInit() {
+
+    if (this.autoDraw) {
+      this.lineLength = this.pathEl.nativeElement.getTotalLength();
+
+      const css = generateAutoDrawCss({
+        id: this.trendId,
+        lineLength: this.lineLength,
+        duration: this.autoDrawDuration,
+        easing: this.autoDrawEasing,
+      });
+      injectStyleTag(css);
+    }
   }
   setup() {
     // We need at least 2 points to draw a graph.
