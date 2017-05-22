@@ -1,4 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import json from '../lib/package.json';
 
 const gradients = [
   ['#222'],
@@ -84,6 +87,13 @@ export class AppComponent implements OnInit {
   gradient = defaultGradient;
   strokeLinecap = defaultLinecap;
   updateTrendParam = new EventEmitter<[string, any]>();
+  constructor(private title: Title) {
+    const current = title.getTitle();
+    // fix for tests
+    if (json) {
+      title.setTitle(`${current} ${json.version}`);
+    }
+  }
 
 
   changeView(view: string) {

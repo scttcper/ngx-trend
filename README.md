@@ -11,6 +11,9 @@
 <br>
 This is a port of the [react-trend](https://github.com/unsplash/react-trend) library by [unsplash](https://unsplash.com).
 
+## Warning
+ngx-trend is still in alpha
+
 
 ## Demo
 
