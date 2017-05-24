@@ -4,10 +4,10 @@
   <h1>Angular Trend</h1>
   <br>
   <a href="https://www.npmjs.org/package/ngx-trend">
-    <img src="https://img.shields.io/npm/v/ngx-trend.png?style=flat-square" alt="npm">
+    <img src="https://badge.fury.io/js/ngx-trend.svg" alt="npm">
   </a> 
   <a href="https://travis-ci.org/scttcper/ngx-trend">
-    <img src="https://img.shields.io/travis/scttcper/ngx-trend/master.png?style=flat-square" alt="travis"></a> 
+    <img src="https://travis-ci.org/scttcper/ngx-trend.svg?branch=master" alt="travis"></a> 
   <a href="https://codecov.io/github/scttcper/ngx-trend">
     <img src="https://img.shields.io/codecov/c/github/scttcper/ngx-trend.svg" alt="codecov">
   </a>
