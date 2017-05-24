@@ -3,7 +3,17 @@
   <br>
   <h1>Angular Trend</h1>
   <br>
-  <a href="https://www.npmjs.org/package/ngx-trend"><img src="https://img.shields.io/npm/v/ngx-trend.png?style=flat-square" alt="npm"></a> <a href="https://travis-ci.org/scttcper/ngx-trend"><img src="https://img.shields.io/travis/scttcper/ngx-trend/master.png?style=flat-square" alt="travis"></a> <a href="https://codecov.io/github/scttcper/ngx-trend"><img src="https://img.shields.io/codecov/c/github/scttcper/ngx-trend.svg" alt="travis"></a>
+  <a href="https://www.npmjs.org/package/ngx-trend">
+    <img src="https://img.shields.io/npm/v/ngx-trend.png?style=flat-square" alt="npm">
+  </a> 
+  <a href="https://travis-ci.org/scttcper/ngx-trend">
+    <img src="https://img.shields.io/travis/scttcper/ngx-trend/master.png?style=flat-square" alt="travis"></a> 
+  <a href="https://codecov.io/github/scttcper/ngx-trend">
+    <img src="https://img.shields.io/codecov/c/github/scttcper/ngx-trend.svg" alt="codecov">
+  </a>
+  <a href="https://greenkeeper.io/">
+    <img src="https://badges.greenkeeper.io/scttcper/ngx-trend.svg" alt="greenkeeper">
+  </a>
 </div>
 
 <br>
