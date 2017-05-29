@@ -224,7 +224,7 @@ In most cases you don't need to touch this value.
 
 ###### Example
 ```ts
-<ngx-trend strokeWidth="20" padding="18"></ngx-trend>
+<ngx-trend strokeWidth="20" [padding]="18"></ngx-trend>
 ```
 
 
