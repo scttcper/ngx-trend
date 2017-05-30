@@ -30,7 +30,7 @@ import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
     [attr.stroke-width]="strokeWidth"
     [attr.stroke-linecap]="strokeLinecap"
   >
-  <defs>
+  <defs *ngIf="gradient">
     <linearGradient
       [attr.id]="gradientId"
       x1="0%"
@@ -69,7 +69,7 @@ export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
   @Input() stroke = 'black';
   @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
-  @Input() gradient: string[] = [];
+  @Input() gradient: string[];
   @ViewChild('svg') svg: ElementRef;
   @ViewChild('pathEl') pathEl: ElementRef;
   trendId: number;
@@ -102,7 +102,8 @@ export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
     });
   }
   generateStroke(gradient: string[]) {
-    return gradient ? `url(#${this.gradientId})` : undefined;
+    // NOTE: location.href is a fix for safari http://stackoverflow.com/a/18265336/796152
+    return gradient ? `url('${location.href}#${this.gradientId}')` : undefined;
   }
   ngDoCheck() {
     const changes = this.iterableDiffer.diff(this.data);
