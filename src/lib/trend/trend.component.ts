@@ -30,7 +30,7 @@ import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
     [attr.stroke-width]="strokeWidth"
     [attr.stroke-linecap]="strokeLinecap"
   >
-  <defs *ngIf="gradient">
+  <defs>
     <linearGradient
       [attr.id]="gradientId"
       x1="0%"
@@ -69,7 +69,7 @@ export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
   @Input() stroke = 'black';
   @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
-  @Input() gradient: string[];
+  @Input() gradient: string[] = [];
   @ViewChild('svg') svg: ElementRef;
   @ViewChild('pathEl') pathEl: ElementRef;
   trendId: number;
