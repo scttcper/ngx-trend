@@ -2,10 +2,12 @@ import {
   Component,
   Input,
   OnChanges,
+  AfterViewInit,
+  DoCheck,
   ViewChild,
   Renderer2,
   ElementRef,
-  AfterViewInit,
+  IterableDiffers,
 } from '@angular/core';
 
 import {
@@ -54,7 +56,7 @@ import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
   </svg>
   `,
 })
-export class TrendComponent implements OnChanges, AfterViewInit {
+export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
   @Input() autoDraw = false;
@@ -78,14 +80,19 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   svgWidth: string | number = '100%';
   svgHeight: string | number = '25%';
   lineLength: number;
+  iterableDiffer: any;
+  firstDraw = false;
+
   constructor(
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private _iterableDiffers: IterableDiffers,
   ) {
     // Generate a random ID. This is important for distinguishing between
     // Trend components on a page, so that they can have different keyframe
     // animations.
     this.trendId = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.trendId}`;
+    this.iterableDiffer = this._iterableDiffers.find([]).create(null);
   }
   normalize(index: number) {
     return normalize({
@@ -97,7 +104,13 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   generateStroke(gradient: string[]) {
     return gradient ? `url(#${this.gradientId})` : undefined;
   }
-  ngOnChanges() {
+  ngDoCheck() {
+    const changes = this.iterableDiffer.diff(this.data);
+    if (changes && this.firstDraw) {
+      this.setup();
+    }
+}
+  ngOnChanges(changes) {
     this.setup();
   }
   ngAfterViewInit() {
@@ -161,5 +174,7 @@ export class TrendComponent implements OnChanges, AfterViewInit {
       'viewBox',
       `0 0 ${this.viewBoxWidth} ${this.viewBoxHeight}`
     );
+    // allow for watching changes to data array after first draw
+    this.firstDraw = true;
   }
 }
