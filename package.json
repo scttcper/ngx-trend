@@ -23,7 +23,7 @@
     "@angular/router": "^4.2.0-rc.0",
     "core-js": "^2.4.1",
     "ng2-nouislider": "^1.6.1",
-    "nouislider": "^9.2.0",
+    "nouislider": "^10.0.0",
     "rxjs": "^5.4.0",
     "zone.js": "^0.8.11"
   },
@@ -31,8 +31,8 @@
     "@angular/cli": "1.1.0-rc.1",
     "@angular/compiler-cli": "^4.2.0-rc.0",
     "@angular/language-service": "^4.2.0-rc.0",
-    "@types/jasmine": "2.5.47",
-    "@types/node": "~7.0.22",
+    "@types/jasmine": "^2.5.50",
+    "@types/node": "^7.0.26",
     "codelyzer": "~3.0.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
@@ -48,7 +48,7 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "ts-node": "~3.0.4",
-    "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "tslint": "^5.4.2",
+    "typescript": "^2.3.4"
   }
 }
