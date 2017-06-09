@@ -72,6 +72,9 @@
   transition: transform 400ms;
   left: -10px;
 }
+.noUi-handle:focus {
+  outline: none;
+}
 .noUi-active {
   cursor: grabbing;
   transition: transform 75ms;
