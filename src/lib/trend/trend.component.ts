@@ -3,11 +3,9 @@ import {
   Input,
   OnChanges,
   AfterViewInit,
-  DoCheck,
   ViewChild,
   Renderer2,
   ElementRef,
-  IterableDiffers,
 } from '@angular/core';
 
 import {
@@ -56,7 +54,7 @@ import { normalizeDataset, generateAutoDrawCss } from './trend.helpers';
   </svg>
   `,
 })
-export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
+export class TrendComponent implements OnChanges, AfterViewInit {
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
   @Input() autoDraw = false;
@@ -80,19 +78,16 @@ export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
   svgWidth: string | number = '100%';
   svgHeight: string | number = '25%';
   lineLength: number;
-  iterableDiffer: any;
   firstDraw = false;
 
   constructor(
     private renderer: Renderer2,
-    private _iterableDiffers: IterableDiffers,
   ) {
     // Generate a random ID. This is important for distinguishing between
     // Trend components on a page, so that they can have different keyframe
     // animations.
     this.trendId = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.trendId}`;
-    this.iterableDiffer = this._iterableDiffers.find([]).create(null);
   }
   normalize(index: number) {
     return normalize({
@@ -105,12 +100,6 @@ export class TrendComponent implements OnChanges, AfterViewInit, DoCheck {
     // NOTE: location.href is a fix for safari http://stackoverflow.com/a/18265336/796152
     return gradient ? `url('${location.href}#${this.gradientId}')` : undefined;
   }
-  ngDoCheck() {
-    const changes = this.iterableDiffer.diff(this.data);
-    if (changes && this.firstDraw) {
-      this.setup();
-    }
-}
   ngOnChanges(changes) {
     this.setup();
   }
