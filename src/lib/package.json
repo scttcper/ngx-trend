@@ -1,6 +1,6 @@
 {
   "name": "ngx-trend",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "ngx-trend Angular component",
   "main": "trend.umd.js",
   "module": "index.js",
