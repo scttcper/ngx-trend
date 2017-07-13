@@ -23,7 +23,7 @@ const a = `<div class="column">
     />
   </div>
 
-</div>`
+</div>`;
 @Component({
   selector: 'config',
   styleUrls: ['./config.component.css'],
