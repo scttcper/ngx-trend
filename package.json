@@ -25,7 +25,7 @@
     "ng2-nouislider": "^1.6.1",
     "nouislider": "^10.0.0",
     "rxjs": "^5.4.2",
-    "zone.js": "0.8.12"
+    "zone.js": "0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.2.1",
