@@ -44,7 +44,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "rimraf": "^2.6.1",
-    "rollup": "^0.46.0",
+    "rollup": "^0.47.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "protractor": "^5.1.2",
