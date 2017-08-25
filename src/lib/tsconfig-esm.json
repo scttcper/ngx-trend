@@ -7,13 +7,11 @@
     "removeComments": false
   },
   "files": [
-    "trend.ts"
+    "index.ts"
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableSummariesForJit": false,
-    "flatModuleOutFile": "index.js",
-    "flatModuleId": "ngxtrend"
+    "enableSummariesForJit": false
   }
 }

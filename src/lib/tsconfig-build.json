@@ -17,13 +17,11 @@
     "moduleResolution": "node"
   },
   "files": [
-    "trend.ts"
+    "index.ts"
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableSummariesForJit": true,
-    "flatModuleOutFile": "index.js",
-    "flatModuleId": "ngxtrend"
+    "enableSummariesForJit": true
   }
 }

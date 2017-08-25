@@ -69,7 +69,7 @@ function generateBundle(input, { file, globals, name }) {
  * @param {Object} globals
  */
 function createUmd(globals) {
-  const name = 'ngxtrend';
+  const name = 'ngx-trend';
   const entry = `${process.cwd()}/dist/packages-dist/index.js`;
   return generateBundle(entry, {
     file: `${process.cwd()}/dist/packages-dist/bundles/trend.umd.js`,
