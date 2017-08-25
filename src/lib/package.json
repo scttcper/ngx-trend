@@ -1,10 +1,11 @@
 {
   "name": "ngx-trend",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "ngx-trend Angular component",
-  "main": "trend.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
+  "main": "./bundles/trend.umd.js",
+  "module": "./index.js",
+  "es2015": "./es2015/index.js",
+  "typings": "./index.d.ts",
   "peerDependencies": {
     "@angular/core": ">=2.4.0 <=6.0.0",
     "@angular/common": ">=2.4.0 <=6.0.0"

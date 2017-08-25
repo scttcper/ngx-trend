@@ -120,7 +120,7 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   setup(): void {
     // We need at least 2 points to draw a graph.
     if (!this.data || this.data.length < 2) {
-      return null;
+      return;
     }
 
     // `data` can either be an array of numbers:

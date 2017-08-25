@@ -6,11 +6,17 @@ set -exu
 
 npm run cleanup
 NGC="node node_modules/.bin/ngc"
+TSC="node node_modules/.bin/tsc"
 
 # Run Angular Compiler
-$NGC -p ./src/lib/tsconfig.lib.json -d
+rm -rf deploy
+rm -rf stage
+$TSC -p ./tsconfig-esm.json
 # create umd
 ./node_modules/.bin/rollup -c rollup.js
+
+rm -rf stage
+$NGC -p ./tsconfig-aot.json
 
 # copy root readme and license to deployment folder
 cp README.md ./deploy
