@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NouisliderModule } from 'ng2-nouislider';
 
 import { AppComponent } from './app.component';
-import { TrendModule } from '../lib/trend';
+import { TrendModule } from '../lib';
 import { ConfigComponent } from './config/config.component';
 import { FooterComponent } from './footer/footer.component';
 import { GithubLinkComponent } from './github-link/github-link.component';
