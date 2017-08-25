@@ -1,2 +1,1 @@
-export * from './trend/trend.component';
-export * from './trend/trend.module';
+export * from './trend/index';
