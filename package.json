@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "rimraf dist && node build.js",
+    "publish": "cd dist/packages-dist && npm publish",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
