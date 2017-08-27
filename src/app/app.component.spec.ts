@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NouisliderModule } from 'ng2-nouislider';
 
@@ -29,7 +30,10 @@ describe('AppComponent', () => {
       ],
       imports: [
         BrowserModule,
+        BrowserAnimationsModule,
+
         NouisliderModule,
+
         TrendModule,
       ],
     }).compileComponents();
