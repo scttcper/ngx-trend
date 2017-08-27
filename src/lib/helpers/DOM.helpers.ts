@@ -4,18 +4,17 @@ import {
   checkForCollinearPoints,
 } from './math.helpers';
 
-export const buildLinearPath = data => (
-  data.reduce((path, { x, y }, index) => {
+export const buildLinearPath = data =>
+  data.reduce((path, point, index) => {
     // The very first instruction needs to be a "move".
     // The rest will be a "line".
     const isFirstInstruction = index === 0;
     const instruction = isFirstInstruction ? 'M' : 'L';
 
-    return `${path}${instruction} ${x},${y}\n`;
-  }, '')
-);
+    return `${path}${instruction} ${point.x},${point.y}\n`;
+  }, '');
 
-export const buildSmoothPath = (data, { radius }) => {
+export function buildSmoothPath(data, radius) {
   const [firstPoint, ...otherPoints] = data;
 
   return otherPoints.reduce((path, point, index) => {
@@ -33,7 +32,7 @@ export const buildSmoothPath = (data, { radius }) => {
     const distanceFromNext = getDistanceBetween(next, point);
     const threshold = Math.min(distanceFromPrev, distanceFromNext);
 
-    const isTooCloseForRadius = (threshold / 2) < radius;
+    const isTooCloseForRadius = threshold / 2 < radius;
 
     const radiusForPoint = isTooCloseForRadius ? threshold / 2 : radius;
 
@@ -46,28 +45,4 @@ export const buildSmoothPath = (data, { radius }) => {
       `S ${point.x},${point.y} ${after.x},${after.y}`,
     ].join('\n');
   }, `M ${firstPoint.x},${firstPoint.y}`);
-};
-
-// Taken from Khan Academy's Aphrodite
-// https://github.com/Khan/aphrodite/blob/master/src/inject.js
-let styleTag;
-export const injectStyleTag = (cssContents) => {
-  if (styleTag == null) {
-    // Try to find a style tag with the `data-ngx-trend` attribute first.
-    styleTag = document.querySelector('style[data-ngx-trend]');
-
-    // If that doesn't work, generate a new style tag.
-    if (styleTag == null) {
-      // Taken from
-      // http://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
-      const head = document.head || document.getElementsByTagName('head')[0];
-      styleTag = document.createElement('style');
-
-      styleTag.type = 'text/css';
-      styleTag.setAttribute('data-ngx-trend', '');
-      head.appendChild(styleTag);
-    }
-  }
-
-  styleTag.appendChild(document.createTextNode(cssContents));
-};
+}

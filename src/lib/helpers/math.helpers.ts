@@ -11,7 +11,13 @@
  *
  * @returns {Number} the value on its new scale
  */
-export const normalize = ({ value, min, max, scaleMin = 0, scaleMax = 1 }) => {
+export function normalize(
+  value: number,
+  min: number,
+  max: number,
+  scaleMin = 0,
+  scaleMax = 1,
+) {
   // If the `min` and `max` are the same value, it means our dataset is flat.
   // For now, let's assume that flat data should be aligned to the bottom.
   if (min === max) {
@@ -19,7 +25,12 @@ export const normalize = ({ value, min, max, scaleMin = 0, scaleMax = 1 }) => {
   }
 
   return scaleMin + (value - min) * (scaleMax - scaleMin) / (max - min);
-};
+}
+
+export interface Point {
+  x: number;
+  y: number;
+}
 
 /** moveTo
  * the coordinate that lies at a midpoint between 2 lines, based on the radius
@@ -34,16 +45,16 @@ export const normalize = ({ value, min, max, scaleMin = 0, scaleMax = 1 }) => {
  *
  * @returns {Object} an object holding the x/y coordinates of the midpoint.
  */
-export const moveTo = (to, from, radius) => {
+export function moveTo(to: Point, from: Point, radius: number) {
   const vector = { x: to.x - from.x, y: to.y - from.y };
-  const length = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
+  const length = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
   const unitVector = { x: vector.x / length, y: vector.y / length };
 
   return {
     x: from.x + unitVector.x * radius,
     y: from.y + unitVector.y * radius,
   };
-};
+}
 
 /** getDistanceBetween
  * Simple formula derived from pythagoras to calculate the distance between
@@ -58,11 +69,8 @@ export const moveTo = (to, from, radius) => {
  *
  * @returns {Number} the distance between the points.
  */
-export const getDistanceBetween = (p1, p2) => (
-  Math.sqrt(
-    Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)
-  )
-);
+export const getDistanceBetween = (p1: Point, p2: Point) =>
+  Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 
 /** checkForCollinearPoints
  * Figure out if the midpoint fits perfectly on a line between the two others.
@@ -79,7 +87,5 @@ export const getDistanceBetween = (p1, p2) => (
 
  * @returns {Boolean} whether or not p2 sits on the line between p1 and p3.
  */
-export const checkForCollinearPoints = (p1, p2, p3) => (
-  (p1.y - p2.y) * (p1.x - p3.x) ===
-  (p1.y - p3.y) * (p1.x - p2.x)
-);
+export const checkForCollinearPoints = (p1: Point, p2: Point, p3: Point) =>
+  (p1.y - p2.y) * (p1.x - p3.x) === (p1.y - p3.y) * (p1.x - p2.x);

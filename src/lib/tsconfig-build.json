@@ -12,8 +12,8 @@
     "declaration": false,
     "removeComments": true,
     "strictNullChecks": true,
-    "lib": ["es2015", "dom"],
     "skipLibCheck": true,
+    "lib": ["es2015", "dom"],
     "moduleResolution": "node"
   },
   "files": [
@@ -21,7 +21,8 @@
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
+    // TODO: turn on
+    "strictMetadataEmit": false,
     "enableSummariesForJit": true
   }
 }

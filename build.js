@@ -15,6 +15,11 @@ const GLOBALS = {
   '@angular/core': 'ng.core',
   '@angular/common': 'ng.common',
   '@angular/platform-browser': 'ng.platformBrowser',
+  'rxjs': 'Rx',
+  'rxjs/Observable': 'Rx',
+  'rxjs/Subject': 'Rx',
+  'rxjs/Observer': 'Rx',
+  'rxjs/Subscription': 'Rx',
 };
 
 // Map of dependency versions across all packages
