@@ -62,7 +62,7 @@
   "bundlesize": [
     {
       "path": "./dist/packages-dist/bundles/*.js",
-      "maxSize": "3 kB"
+      "maxSize": "3.5 kB"
     }
   ]
 }
