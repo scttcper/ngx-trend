@@ -55,9 +55,11 @@ UMD build exposes the component as `ngxtrend`.
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { TrendModule } from 'ngx-trend';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     TrendModule,
   ],
 })
