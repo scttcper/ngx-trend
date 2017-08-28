@@ -1,10 +1,6 @@
-import {
-  moveTo,
-  getDistanceBetween,
-  checkForCollinearPoints,
-} from './math.helpers';
+import { moveTo, getDistanceBetween, checkForCollinearPoints, Point } from './math.helpers';
 
-export const buildLinearPath = data =>
+export const buildLinearPath = (data: Point[]) =>
   data.reduce((path, point, index) => {
     // The very first instruction needs to be a "move".
     // The rest will be a "line".
@@ -14,7 +10,7 @@ export const buildLinearPath = data =>
     return `${path}${instruction} ${point.x},${point.y}\n`;
   }, '');
 
-export function buildSmoothPath(data, radius) {
+export function buildSmoothPath(data: Point[], radius: number) {
   const [firstPoint, ...otherPoints] = data;
 
   return otherPoints.reduce((path, point, index) => {

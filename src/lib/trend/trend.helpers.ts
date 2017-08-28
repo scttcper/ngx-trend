@@ -30,7 +30,6 @@ export function normalizeDataset(
   // are ways within the SVG spec of changing it, but not without causing
   // breaking changes).
   if (boundariesY.min === boundariesY.max) {
-    // eslint-disable-next-line no-param-reassign
     normalizedData[0].y += 0.0001;
   }
 

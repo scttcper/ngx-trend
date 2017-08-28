@@ -9,9 +9,12 @@ import { Component, OnChanges, Input } from '@angular/core';
 // app.module.ts
 import {{ '{' }} NgModule } from '@angular/core';
 import {{ '{' }} TrendModule } from 'ngx-trend';
+// animations module required for autoDraw
+import {{ '{' }} BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({{ '{' }}
   imports: [
+    BrowserAnimationsModule,
     TrendModule,
   ],
 })

@@ -45,7 +45,7 @@ export interface Point {
  *
  * @returns {Object} an object holding the x/y coordinates of the midpoint.
  */
-export function moveTo(to: Point, from: Point, radius: number) {
+export function moveTo(to: Point, from: Point, radius: number): Point {
   const vector = { x: to.x - from.x, y: to.y - from.y };
   const length = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
   const unitVector = { x: vector.x / length, y: vector.y / length };

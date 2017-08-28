@@ -11,8 +11,7 @@
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    // TODO: turn on
-    "strictMetadataEmit": false,
+    "strictMetadataEmit": true,
     "enableSummariesForJit": false
   }
 }

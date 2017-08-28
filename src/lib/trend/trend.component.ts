@@ -10,9 +10,9 @@ import { trigger, style, transition, animate, keyframes } from '@angular/animati
 
 import { buildSmoothPath, buildLinearPath } from '../helpers/DOM.helpers';
 import { normalize } from '../helpers/math.helpers';
+import { generateId } from '../helpers/misc.helpers';
 import { normalizeDataset } from './trend.helpers';
 
-var nextTrendId = 0;
 
 @Component({
   selector: 'ngx-trend',
@@ -25,37 +25,32 @@ var nextTrendId = 0;
     [attr.stroke-linecap]="strokeLinecap"
     [attr.viewBox]="viewBox"
   >
-  <defs *ngIf="gradient">
-    <linearGradient
-      [attr.id]="gradientId"
-      x1="0%"
-      y1="0%"
-      x2="0%"
-      y2="100%"
-    >
-    <stop
-      *ngFor="let g of gradientTrimmed;"
-      [attr.key]="g.idx"
-      [attr.offset]="g.offset"
-      [attr.stop-color]="g.stopColor"
-    />
-    </linearGradient>
-  </defs>
-  <path fill="none" #pathEl
-    [attr.stroke]="pathStroke" [attr.d]="d"
-    [@pathAnimaiton]="{
-      value: animationState,
-      params: {
-        autoDrawDuration:autoDrawDuration,
-        autoDrawEasing:autoDrawEasing
-      }
-    }">
-  </path>
+    <defs *ngIf="gradient">
+      <linearGradient [attr.id]="gradientId"
+        x1="0%" y1="0%" x2="0%" y2="100%"
+      >
+        <stop
+          *ngFor="let g of gradientTrimmed;"
+          [attr.key]="g.idx"
+          [attr.offset]="g.offset"
+          [attr.stop-color]="g.stopColor"
+        />
+      </linearGradient>
+    </defs>
+    <path fill="none" #pathEl
+      [attr.stroke]="pathStroke" [attr.d]="d"
+      [@pathAnimaiton]="{
+        value: animationState,
+        params: {
+          autoDrawDuration: autoDrawDuration,
+          autoDrawEasing: autoDrawEasing
+        }
+      }" />
   </svg>
   `,
   animations: [
     trigger('pathAnimaiton', [
-      transition('inactive => active', [
+      transition('* => active', [
         // We do the animation using the dash array/offset trick
         // https://css-tricks.com/svg-line-animation-works/
         animate('{{autoDrawDuration}}ms {{autoDrawEasing}}',
@@ -104,28 +99,24 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   svgWidth: string | number = '100%';
   svgHeight: string | number = '25%';
   viewBox: string;
-  css: any;
   pathStroke: any;
   gradientId: string;
   lineLength: number;
   animationState = 'inactive';
 
   constructor() {
-    this.id = nextTrendId++;
+    this.id = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.id}`;
   }
-
-  ngOnChanges(changes) {
-    this.setup();
-  }
   ngAfterViewInit() {
-    this.lineLength = this.pathEl.nativeElement.getTotalLength();
     if (this.autoDraw) {
-      // TODO: find place for this
-      setTimeout(() => this.animationState = 'active');
+      setTimeout(() => {
+        this.lineLength = this.pathEl.nativeElement.getTotalLength();
+        this.animationState = 'active';
+      });
     }
   }
-  setup() {
+  ngOnChanges() {
     // We need at least 2 points to draw a graph.
     if (!this.data || this.data.length < 2) {
       return;
