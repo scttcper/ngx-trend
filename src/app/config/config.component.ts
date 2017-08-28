@@ -1,29 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-const a = `<div class="column">
-  <div class="configField">
-    <h6 class="label">Width</h6>
-    <Slider
-      withBars
-      value={params.strokeWidth}
-      min={0.1}
-      max={5}
-      step={0.1}
-      onChange={val => handleUpdate({ strokeWidth: val })}
-    />
-  </div>
-  <div class="configField">
-    <h6 class="label">Radius</h6>
-    <Slider
-      withBars
-      value={params.radius}
-      min={0}
-      max={25}
-      step={0.1}
-      onChange={val => handleUpdate({ radius: val })}
-    />
-  </div>
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-</div>`;
 @Component({
   selector: 'config',
   styleUrls: ['./config.component.css'],
@@ -34,16 +10,13 @@ const a = `<div class="column">
         <h6 class="label">Color</h6>
         <gradient-preview
           *ngFor="let g of gradients; let idx = index;"
-          [gradient]="g"
-          [handleUpdate]="handleUpdate"
-          [isActive]="gradient === g"
-        >
+          [gradient]="g" [handleUpdate]="handleUpdate"
+          [isActive]="gradient === g">
         </gradient-preview>
       </div>
       <div class="configField">
         <h6 class="label">Linecap</h6>
-          <button
-            class="toggle"
+          <button class="toggle"
             *ngFor="let linecap of linecaps"
             [class.isActive]="strokeLinecap === linecap"
             (click)="handleUpdate.next(['strokeLinecap', linecap])"
@@ -78,19 +51,14 @@ const a = `<div class="column">
   </div>
   `,
 })
-export class ConfigComponent implements OnInit {
+export class ConfigComponent {
   @Input() gradients: string[][];
   @Input() gradient: string[];
   @Input() linecaps: string[];
   @Input() strokeWidth: number;
-  @Output() strokeWidthChange = new EventEmitter<number>();
   @Input() radius: number;
-  @Output() radiusChange = new EventEmitter<number>();
   @Input() strokeLinecap: string;
   @Input() handleUpdate: EventEmitter<string>;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  @Output() strokeWidthChange = new EventEmitter<number>();
+  @Output() radiusChange = new EventEmitter<number>();
 }
