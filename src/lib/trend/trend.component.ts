@@ -53,7 +53,7 @@ import { normalizeDataset } from './trend.helpers';
       transition('* => active', [
         // We do the animation using the dash array/offset trick
         // https://css-tricks.com/svg-line-animation-works/
-        animate('{{autoDrawDuration}}ms {{autoDrawEasing}}',
+        animate('{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
           keyframes([
             style({
               'stroke-dasharray': 433,

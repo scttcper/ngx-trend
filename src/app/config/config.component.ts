@@ -21,28 +21,22 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
             [class.isActive]="strokeLinecap === linecap"
             (click)="handleUpdate.next(['strokeLinecap', linecap])"
           >
-            {{linecap}}
+            {{ linecap }}
           </button>
       </div>
     </div>
     <div class="column">
       <div class="configField">
         <h6 class="label">Width</h6>
-        <slider
-          [value]="strokeWidth"
-          [min]="0.1"
-          [max]="5"
-          [step]="0.1"
+        <slider [value]="strokeWidth"
+          [min]="0.1" [max]="5" [step]="0.1"
           (valueChange)="strokeWidthChange.next($event)">
         </slider>
       </div>
       <div class="configField">
         <h6 class="label">Radius</h6>
-        <slider
-          [value]="radius"
-          [min]="0.1"
-          [max]="25"
-          [step]="0.1"
+        <slider [value]="radius"
+          [min]="0.1" [max]="25" [step]="0.1"
           (valueChange)="radiusChange.next($event)">
         </slider>
       </div>

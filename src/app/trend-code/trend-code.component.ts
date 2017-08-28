@@ -21,7 +21,7 @@ import {{ '{' }} BrowserAnimationsModule } from '@angular/platform-browser/anima
 export class AppModule {{ '{' }} }
     </pre>
     <pre style="display: block; overflow-x: auto; padding: 0.5em; background: white; color: black;">
-      {{codeString}}
+      {{ codeString }}
     </pre>
   </div>
   `,
