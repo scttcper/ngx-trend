@@ -5,7 +5,7 @@
     "module": "es2015",
     "target": "es2015",
     "noImplicitAny": false,
-    "outDir": "../../dist/packages-dist/es2015",
+    "outDir": "../../dist/es2015",
     "rootDir": ".",
     "sourceMap": true,
     "inlineSources": true,
@@ -17,11 +17,14 @@
     "moduleResolution": "node"
   },
   "files": [
-    "index.ts"
+    "public_api.ts"
   ],
   "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableSummariesForJit": true
+    "enableSummariesForJit": true,
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "ngx-trend"
   }
 }

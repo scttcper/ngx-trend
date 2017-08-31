@@ -1,13 +1,13 @@
 {
   "name": "ngx-trend",
-  "version": "2.0.0-beta",
+  "version": "2.0.0-beta.3",
   "publishConfig": {
     "tag": "next"
   },
   "description": "ngx-trend Angular component",
   "main": "./bundles/trend.umd.js",
-  "module": "./index.js",
-  "es2015": "./es2015/index.js",
+  "module": "./trend.es5.js",
+  "es2015": "./trend.es2015.js",
   "typings": "./index.d.ts",
   "peerDependencies": {
     "@angular/core": ">=4.3.0 <=6.0.0",
