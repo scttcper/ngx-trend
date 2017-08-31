@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NouisliderModule } from 'ng2-nouislider';
 
-import { TrendModule } from '../lib/trend';
+import { TrendModule } from '../lib/trend/trend.module';
 
 import { AppComponent } from './app.component';
 import { ConfigComponent } from './config/config.component';
