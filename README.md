@@ -21,6 +21,10 @@
 <br>
 
 
+## v2 breaking
+ngx-trend now requires angular's BrowserAnimationsModule to use angular's animations. See updated [quickstart](#quickstart)
+
+
 This is a port of the [react-trend](https://github.com/unsplash/react-trend) library by [unsplash](https://unsplash.com).
 
 ## Demo
@@ -32,8 +36,8 @@ Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
 - **Simple**. Integrate in seconds.
 - **Scalable**. Uses SVG for sharp, scalable graphs. Will fill the parent container, or you can provide a fixed size.
 - **Beautiful**. Built-in gradient support, and customizable smoothing.
-- **Animatable**. Support for on-mount animations where the trend graph draws from left to right.
-- **Tiny**. Zero-dependency, gzips to <3kb.
+- **Animatable**. Support for on-mount animations where the trend graph draws from left to right using Angular's native Animations library
+- **Tiny**. gzips to <4kb.
 
 
 ### Installation
@@ -42,22 +46,17 @@ Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
 $ npm i --save ngx-trend
 ```
 
-UMD builds are also available via CDN:
-
-- [ngx-trend.js](https://unpkg.com/ngx-trend/umd/trend.umd.js)
-
-UMD build exposes the component as `ngxtrend`.
-
-
 ### Quickstart
 
 ```ts
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { TrendModule } from 'ngx-trend';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     TrendModule,
   ],
 })
@@ -88,7 +87,7 @@ By default, all properties not recognized by React Trend will be delegated to th
 
 This means that, among other properties, you can use:
 
-- `stroke` to set a solid colour,
+- `stroke` to set a solid color,
 - `strokeWidth` to change the default line thickness,
 - `strokeOpacity` to create a transparent line,
 - `strokeLinecap`/`strokeLinejoin` to control the edges of your line,
@@ -181,9 +180,9 @@ As of v1.2.0, you may supply an array of data objects with a `value` property.
 |----------|----------|-------------|
 | [String] | ✕        | `undefined` |
 
-React Trend supports vertical gradients. It accepts an array of 2+ colour values, and will fade evenly between them from the bottom up.
+React Trend supports vertical gradients. It accepts an array of 2+ color values, and will fade evenly between them from the bottom up.
 
-Colour can be specified as any SVG-supported format (named, rgb, hex, etc).
+color can be specified as any SVG-supported format (named, rgb, hex, etc).
 
 ###### Example
 ```ts

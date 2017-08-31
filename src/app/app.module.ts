@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NouisliderModule } from 'ng2-nouislider';
 
+import { TrendModule } from '../lib/trend/trend.module';
+
 import { AppComponent } from './app.component';
-import { TrendModule } from '../lib';
 import { ConfigComponent } from './config/config.component';
 import { FooterComponent } from './footer/footer.component';
 import { GithubLinkComponent } from './github-link/github-link.component';
@@ -26,7 +28,10 @@ import { TrendCodeComponent } from './trend-code/trend-code.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+
     NouisliderModule,
+
     TrendModule,
   ],
   providers: [],

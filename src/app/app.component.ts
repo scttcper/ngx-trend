@@ -87,7 +87,7 @@ export class AppComponent implements OnInit {
   gradient = defaultGradient;
   strokeLinecap = defaultLinecap;
   updateTrendParam = new EventEmitter<[string, any]>();
-  constructor(private title: Title) {
+  constructor(title: Title) {
     const current = title.getTitle();
     // fix for tests
     if (json) {

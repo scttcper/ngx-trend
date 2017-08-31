@@ -1,10 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NouisliderModule } from 'ng2-nouislider';
 
+import { TrendModule } from '../lib/trend/trend.module';
+
 import { AppComponent } from './app.component';
-import { TrendModule } from '../lib';
 import { ConfigComponent } from './config/config.component';
 import { FooterComponent } from './footer/footer.component';
 import { GithubLinkComponent } from './github-link/github-link.component';
@@ -29,7 +31,10 @@ describe('AppComponent', () => {
       ],
       imports: [
         BrowserModule,
+        BrowserAnimationsModule,
+
         NouisliderModule,
+
         TrendModule,
       ],
     }).compileComponents();

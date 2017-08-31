@@ -70,7 +70,7 @@
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
-    "no-var-keyword": true,
+    "no-var-keyword": false,
     "object-literal-sort-keys": false,
     "one-line": [
       true,
@@ -137,6 +137,7 @@
     "directive-class-suffix": true,
     "no-access-missing-member": true,
     "templates-use-public": true,
-    "invoke-injectable": true
+    "invoke-injectable": true,
+    "no-unused-variable": true
   }
 }
