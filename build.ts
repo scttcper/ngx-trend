@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { copy } from 'fs-extra';
 import * as copyfiles from 'copy';
 import * as filesize from 'rollup-plugin-filesize';
-import * as cleanup from 'rollup-plugin-cleanup';
 import * as resolve from 'rollup-plugin-node-resolve';
 import * as sourcemaps from 'rollup-plugin-sourcemaps';
 
@@ -16,6 +15,7 @@ const pkg = require(`${process.cwd()}/package.json`);
 const GLOBALS = {
   '@angular/core': 'ng.core',
   '@angular/common': 'ng.common',
+  '@angular/animations': 'ng.animations',
   '@angular/platform-browser': 'ng.platformBrowser',
   'rxjs': 'Rx',
   'rxjs/Observable': 'Rx',
@@ -43,17 +43,17 @@ function spawnObservable(command, args) {
   });
 }
 
-function generateBundle(input, { file, globals, name, format }) {
+function generateBundle(input, file, globals, name, format) {
+  const plugins = [
+    resolve(),
+    sourcemaps(),
+    filesize(),
+  ];
   return rollup({
     input,
     external: Object.keys(globals),
     file,
-    plugins: [
-      resolve(),
-      cleanup({ comments: 'none' }),
-      sourcemaps(),
-      filesize(),
-    ],
+    plugins,
   }).then(bundle => {
     console.log(file);
     return bundle.write({
@@ -69,23 +69,25 @@ function generateBundle(input, { file, globals, name, format }) {
 function createUmd(globals) {
   const name = 'ngx-trend';
   const entry = `${process.cwd()}/dist/es5/index.js`;
-  return generateBundle(entry, {
-    file: `${process.cwd()}/dist/packages-dist/bundles/trend.umd.js`,
+  return generateBundle(
+    entry,
+    `${process.cwd()}/dist/packages-dist/bundles/trend.umd.js`,
     globals,
     name,
-    format: 'umd',
-  });
+    'umd',
+  );
 }
 
 function createEs(globals, target) {
   const name = 'ngx-trend';
   const entry = `${process.cwd()}/dist/${target}/index.js`;
-  return generateBundle(entry, {
-    file: `${process.cwd()}/dist/packages-dist/trend.${target}.js`,
+  return generateBundle(
+    entry,
+    `${process.cwd()}/dist/packages-dist/trend.${target}.js`,
     globals,
     name,
-    format: 'es',
-  });
+    'es',
+  );
 }
 
 function getVersions() {
