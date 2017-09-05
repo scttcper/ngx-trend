@@ -95,9 +95,9 @@ This means that, among other properties, you can use:
 
 
 #### `autoDraw`
-| Type    | Required | Default|
-|---------|----------|--------|
-| Boolean | ✕        | `false`|
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | ✕        | `false` |
 
 Allow the line to draw itself on mount. Set to `true` to enable, and customize using `autoDrawDuration` and `autoDrawEasing`.
 
@@ -115,9 +115,9 @@ Allow the line to draw itself on mount. Set to `true` to enable, and customize u
 
 
 #### `autoDrawDuration`
-| Type    | Required | Default|
-|---------|----------|--------|
-| Number  | ✕        | `2000` |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | ✕        | `2000`  |
 
 The amount of time, in milliseconds, that the autoDraw animation should span.
 
@@ -135,9 +135,9 @@ This prop has no effect if `autoDraw` isn't set to `true`.
 
 
 #### `autoDrawEasing`
-| Type    | Required | Default|
-|---------|----------|--------|
-| String  | ✕        | `ease` |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| string | ✕        | `ease`  |
 
 The easing function to use for the autoDraw animation. Accepts any transition timing function within [the CSS spec](http://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp) (eg. `linear`, `ease`, `ease-in`, `cubic-bezier`...).
 
@@ -155,9 +155,9 @@ This prop has no effect if `autoDraw` isn't set to `true`.
 
 
 #### `data`
-| Type            | Required | Default     |
-|-----------------|----------|-------------|
-| [Number\|Object] | ✓        | `undefined` |
+| Type     | Required | Default |             |
+| -------- | -------- | ------- | ----------- |
+| number[] | object[] | ✓       | `undefined` |
 
 The data accepted by React Trend is incredibly simple: An array of y-axis values to graph.
 
@@ -176,8 +176,8 @@ As of v1.2.0, you may supply an array of data objects with a `value` property.
 
 #### `gradient`
 | Type     | Required | Default     |
-|----------|----------|-------------|
-| [String] | ✕        | `undefined` |
+| -------- | -------- | ----------- |
+| string[] | ✕        | `undefined` |
 
 React Trend supports vertical gradients. It accepts an array of 2+ color values, and will fade evenly between them from the bottom up.
 
@@ -191,9 +191,9 @@ color can be specified as any SVG-supported format (named, rgb, hex, etc).
 
 
 #### `height`
-| Type     | Required | Default     |
-|----------|----------|-------------|
-| Number   | ✕        | `undefined` |
+| Type   | Required | Default     |
+| ------ | -------- | ----------- |
+| number | ✕        | `undefined` |
 
 Set an explicit height for your SVG. By default it ensures a 1:4 aspect ratio with the width, and the width expands to fill the container.
 
@@ -206,9 +206,9 @@ Note that in _most_ cases it is sufficient to leave this blank, and just control
 
 
 #### `padding`
-| Type     | Required | Default     |
-|----------|----------|-------------|
-| Number   | ✕        | `8`         |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | ✕        | `8`     |
 
 If you set a very large `strokeWidth` on your line, you may notice that it gets "cropped" towards the edges. This is because SVGs don't support overflow.
 
@@ -223,9 +223,9 @@ In most cases you don't need to touch this value.
 
 
 #### `radius`
-| Type     | Required | Default     |
-|----------|----------|-------------|
-| Number   | ✕        | `10`        |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | ✕        | `10`    |
 
 When using [smoothing](#smooth), you may wish to control the amount of curve around each point. For example, a `0` radius is equivalent to not having any smoothing at all, where an impossibly-large number like `10000` will ensure that each peak is as curved as it can possibly be.
 
@@ -238,9 +238,9 @@ This prop has no effect if `smooth` isn't set to `true`.
 
 
 #### `smooth`
-| Type     | Required | Default     |
-|----------|----------|-------------|
-| Boolean  | ✕        | `false`       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | ✕        | `false` |
 
 Smooth allows the peaks to be 'rounded' out so that the line has no jagged edges.
 
@@ -253,9 +253,9 @@ By tweaking the [radius](#radius) prop, you can use this as a subtle prop to ton
 
 
 #### `width`
-| Type     | Required | Default     |
-|----------|----------|-------------|
-| Number   | ✕        | `undefined` |
+| Type   | Required | Default     |
+| ------ | -------- | ----------- |
+| number | ✕        | `undefined` |
 
 Set an explicit width for your SVG. By default it ensures a 1:4 aspect ratio with the height, expanding to fill the width of the container.
 

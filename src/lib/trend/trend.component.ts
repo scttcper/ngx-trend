@@ -25,7 +25,7 @@ import { normalizeDataset } from './trend.helpers';
     [attr.stroke-linecap]="strokeLinecap"
     [attr.viewBox]="viewBox"
   >
-    <defs *ngIf="gradient">
+    <defs *ngIf="gradient && gradient.length">
       <linearGradient [attr.id]="gradientId"
         x1="0%" y1="0%" x2="0%" y2="100%"
       >
@@ -92,7 +92,7 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   @Input() stroke = 'black';
   @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
-  @Input() gradient: string[];
+  @Input() gradient: string[] = [];
   @ViewChild('pathEl') pathEl: ElementRef;
   gradientTrimmed: any[];
   d: any;
@@ -145,7 +145,7 @@ export class TrendComponent implements OnChanges, AfterViewInit {
     this.svgWidth = this.width || '100%';
     this.svgHeight = this.height || '25%';
     this.viewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
-    this.pathStroke = this.gradient ? `url('${location.href}#${this.gradientId}` : undefined;
+    this.pathStroke = (this.gradient && this.gradient.length) ? `url('${location.href}#${this.gradientId}` : undefined;
 
     this.gradientTrimmed = this.gradient.slice().reverse().map((val, idx) => {
       return {
