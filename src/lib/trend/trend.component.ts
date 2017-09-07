@@ -4,7 +4,6 @@ import {
   OnChanges,
   ViewChild,
   ElementRef,
-  AfterViewInit,
 } from '@angular/core';
 import { trigger, style, transition, animate, keyframes } from '@angular/animations';
 
@@ -78,7 +77,7 @@ import { normalizeDataset } from './trend.helpers';
     ]),
   ],
 })
-export class TrendComponent implements OnChanges, AfterViewInit {
+export class TrendComponent implements OnChanges {
   id: number;
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
@@ -107,14 +106,6 @@ export class TrendComponent implements OnChanges, AfterViewInit {
   constructor() {
     this.id = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.id}`;
-  }
-  ngAfterViewInit() {
-    if (this.autoDraw) {
-      setTimeout(() => {
-        this.lineLength = this.pathEl.nativeElement.getTotalLength();
-        this.animationState = 'active';
-      });
-    }
   }
   ngOnChanges() {
     // We need at least 2 points to draw a graph.
@@ -163,6 +154,13 @@ export class TrendComponent implements OnChanges, AfterViewInit {
       viewBoxHeight - this.padding,
       this.padding,
     );
+
+    if (this.autoDraw) {
+      this.animationState = 'active';
+      setTimeout(() => {
+        this.lineLength = this.pathEl.nativeElement.getTotalLength();
+      });
+    }
 
     this.d = this.smooth
       ? buildSmoothPath(normalizedValues, this.radius)
