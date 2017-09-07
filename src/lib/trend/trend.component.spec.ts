@@ -55,7 +55,6 @@ describe('TrendComponent', () => {
     fixture.detectChanges();
     const { strokeWidth } = component;
 
-    // The exact ID is randomly generated, so we can't check the exact value
     expect(strokeWidth).toEqual(3);
   });
 
@@ -65,7 +64,6 @@ describe('TrendComponent', () => {
     fixture.detectChanges();
     const path = fixture.nativeElement.getElementsByTagName('path')[0];
 
-    // The exact ID is randomly generated, so we can't check the exact value
     expect(path.getAttribute('d')).toEqual('M 8,67\nL 150,8\nL 292,67\n');
     expect(path.getAttribute('fill')).toEqual('none');
   });
