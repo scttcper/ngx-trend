@@ -17,7 +17,7 @@ import { normalizeDataset } from './trend.helpers';
 @Component({
   selector: 'ngx-trend',
   template: `
-  <svg
+  <svg *ngIf="data && data.length >= 2"
     [attr.width]="svgWidth"
     [attr.height]="svgHeight"
     [attr.stroke]="stroke"
