@@ -4,6 +4,7 @@ import {
   OnChanges,
   ViewChild,
   ElementRef,
+  AfterViewInit,
 } from '@angular/core';
 import { trigger, style, transition, animate, keyframes } from '@angular/animations';
 
@@ -77,7 +78,7 @@ import { normalizeDataset } from './trend.helpers';
     ]),
   ],
 })
-export class TrendComponent implements OnChanges {
+export class TrendComponent implements OnChanges, AfterViewInit {
   id: number;
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
@@ -156,7 +157,6 @@ export class TrendComponent implements OnChanges {
     );
 
     if (this.autoDraw) {
-      this.animationState = 'active';
       setTimeout(() => {
         this.lineLength = this.pathEl.nativeElement.getTotalLength();
       });
@@ -165,5 +165,11 @@ export class TrendComponent implements OnChanges {
     this.d = this.smooth
       ? buildSmoothPath(normalizedValues, this.radius)
       : buildLinearPath(normalizedValues);
+  }
+  ngAfterViewInit() {
+    if (!this.data || this.data.length < 2) {
+      return;
+    }
+    this.animationState = 'active';
   }
 }
