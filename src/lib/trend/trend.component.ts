@@ -4,7 +4,6 @@ import {
   OnChanges,
   ViewChild,
   ElementRef,
-  AfterViewInit,
 } from '@angular/core';
 import { trigger, style, transition, animate, keyframes } from '@angular/animations';
 
@@ -43,7 +42,8 @@ import { normalizeDataset } from './trend.helpers';
         value: animationState,
         params: {
           autoDrawDuration: autoDrawDuration,
-          autoDrawEasing: autoDrawEasing
+          autoDrawEasing: autoDrawEasing,
+          lineLength: lineLength
         }
       }" />
   </svg>
@@ -56,11 +56,11 @@ import { normalizeDataset } from './trend.helpers';
         animate('{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
           keyframes([
             style({
-              'stroke-dasharray': 433,
-              'stroke-dashoffset': 433,
+              'stroke-dasharray': '{{ lineLength }}',
+              'stroke-dashoffset': '{{ lineLength }}',
             }),
             style({
-              'stroke-dasharray': 433,
+              'stroke-dasharray': '{{ lineLength }}',
               'stroke-dashoffset': 0,
             }),
           ]),
@@ -78,7 +78,7 @@ import { normalizeDataset } from './trend.helpers';
     ]),
   ],
 })
-export class TrendComponent implements OnChanges, AfterViewInit {
+export class TrendComponent implements OnChanges {
   id: number;
   @Input() data: (number | {value: number})[];
   @Input() smooth: boolean;
@@ -159,17 +159,12 @@ export class TrendComponent implements OnChanges, AfterViewInit {
     if (this.autoDraw) {
       setTimeout(() => {
         this.lineLength = this.pathEl.nativeElement.getTotalLength();
+        this.animationState = 'active';
       });
     }
 
     this.d = this.smooth
       ? buildSmoothPath(normalizedValues, this.radius)
       : buildLinearPath(normalizedValues);
-  }
-  ngAfterViewInit() {
-    if (!this.data || this.data.length < 2) {
-      return;
-    }
-    this.animationState = 'active';
   }
 }
