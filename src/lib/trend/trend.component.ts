@@ -56,11 +56,11 @@ import { normalizeDataset } from './trend.helpers';
         animate('{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
           keyframes([
             style({
-              'stroke-dasharray': '{{ lineLength }}',
-              'stroke-dashoffset': '{{ lineLength }}',
+              'stroke-dasharray': '{{ lineLength }}px',
+              'stroke-dashoffset': '{{ lineLength }}px',
             }),
             style({
-              'stroke-dasharray': '{{ lineLength }}',
+              'stroke-dasharray': '{{ lineLength }}px',
               'stroke-dashoffset': 0,
             }),
           ]),
