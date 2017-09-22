@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "^4.4.3",
     "@angular/router": "^4.4.3",
     "core-js": "^2.5.1",
-    "ng2-nouislider": "1.7.0",
+    "ng2-nouislider": "1.6.2",
     "nouislider": "^10.1.0",
     "rxjs": "^5.4.3",
     "web-animations-js": "^2.3.1",
