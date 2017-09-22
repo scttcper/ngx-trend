@@ -5,7 +5,7 @@ import {
   ViewChild,
   ElementRef,
 } from '@angular/core';
-import { trigger, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, style, transition, animate, keyframes, state } from '@angular/animations';
 
 import { buildSmoothPath, buildLinearPath } from '../helpers/DOM.helpers';
 import { normalize } from '../helpers/math.helpers';
@@ -50,6 +50,9 @@ import { normalizeDataset } from './trend.helpers';
   `,
   animations: [
     trigger('pathAnimaiton', [
+      state('inactive', style({
+        display: 'none',
+      })),
       transition('* => active', [
         // We do the animation using the dash array/offset trick
         // https://css-tricks.com/svg-line-animation-works/
@@ -102,7 +105,7 @@ export class TrendComponent implements OnChanges {
   pathStroke: any;
   gradientId: string;
   lineLength: number;
-  animationState = 'inactive';
+  animationState = '';
 
   constructor() {
     this.id = generateId();
@@ -157,6 +160,7 @@ export class TrendComponent implements OnChanges {
     );
 
     if (this.autoDraw) {
+      this.animationState = 'inactive';
       setTimeout(() => {
         this.lineLength = this.pathEl.nativeElement.getTotalLength();
         this.animationState = 'active';
