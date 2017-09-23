@@ -159,7 +159,7 @@ export class TrendComponent implements OnChanges {
       this.padding,
     );
 
-    if (this.autoDraw) {
+    if (this.autoDraw && this.animationState !== 'active') {
       this.animationState = 'inactive';
       setTimeout(() => {
         this.lineLength = this.pathEl.nativeElement.getTotalLength();
