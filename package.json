@@ -38,7 +38,7 @@
     "@types/jasmine": "^2.6.0",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^8.0.30",
-    "bundlesize": "^0.14.4",
+    "bundlesize": "^0.15.0",
     "codelyzer": "^3.2.0",
     "copy": "^0.3.1",
     "fs-extra": "^4.0.2",
