@@ -23,7 +23,7 @@
     "@angular/forms": "^4.4.6",
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
-    "@angular/router": "^4.4.6",
+    "@angular/router": "^5.0.2",
     "core-js": "^2.5.1",
     "ng2-nouislider": "1.7.3",
     "nouislider": "^10.1.0",
