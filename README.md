@@ -23,9 +23,6 @@
 
 This is a port of the [react-trend](https://github.com/unsplash/react-trend) library by [unsplash](https://unsplash.com).
 
-## v2 breaking
-ngx-trend now requires angular's BrowserAnimationsModule to use angular's animations. See updated [quickstart](#quickstart)
-
 ## Demo
 
 Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
