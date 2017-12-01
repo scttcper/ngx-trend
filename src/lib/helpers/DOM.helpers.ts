@@ -1,4 +1,9 @@
-import { moveTo, getDistanceBetween, checkForCollinearPoints, Point } from './math.helpers';
+import {
+  checkForCollinearPoints,
+  getDistanceBetween,
+  moveTo,
+  Point,
+} from './math.helpers';
 
 export const buildLinearPath = (data: Point[]) =>
   data.reduce((path, point, index) => {

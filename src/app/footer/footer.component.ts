@@ -4,7 +4,7 @@ import { Component, OnInit, VERSION } from '@angular/core';
   selector: 'demo-footer',
   template: `
   <footer class="footer">
-    Demo using Anuglar {{version}}
+    Demo using Anuglar {{ version }}
     <br>
     Released under the
     <a href="https://github.com/scttcper/ngx-trend/blob/master/LICENSE">MIT</a> license.

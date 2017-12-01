@@ -1,14 +1,14 @@
 {
   "name": "ngx-trend",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "description": "ngx-trend Angular component",
   "main": "./bundles/trend.umd.js",
   "module": "./trend.es5.js",
   "es2015": "./trend.es2015.js",
   "typings": "./index.d.ts",
   "peerDependencies": {
-    "@angular/core": ">=4.3.0 <=6.0.0",
-    "@angular/common": ">=4.3.0 <=6.0.0"
+    "@angular/core": ">=5.0.0 <=6.0.0",
+    "@angular/common": ">=5.0.0 <=6.0.0"
   },
   "repository": "https://github.com/scttcper/ngx-trend.git",
   "homepage": "https://github.com/scttcper/ngx-trend",

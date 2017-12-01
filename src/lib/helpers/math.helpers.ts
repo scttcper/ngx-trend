@@ -3,13 +3,13 @@
 /** normalize
  * This lets us translate a value from one scale to another.
  *
- * @param {Number} value - Our initial value to translate
- * @param {Number} min - the current minimum value possible
- * @param {Number} max - the current maximum value possible
- * @param {Number} scaleMin - the min value of the scale we're translating to
- * @param {Number} scaleMax - the max value of the scale we're translating to
+ * @param value - Our initial value to translate
+ * @param min - the current minimum value possible
+ * @param max - the current maximum value possible
+ * @param scaleMin - the min value of the scale we're translating to
+ * @param scaleMax - the max value of the scale we're translating to
  *
- * @returns {Number} the value on its new scale
+ * @returns the value on its new scale
  */
 export function normalize(
   value: number,
@@ -35,15 +35,15 @@ export interface Point {
 /** moveTo
  * the coordinate that lies at a midpoint between 2 lines, based on the radius
  *
- * @param {Object} to - Our initial point
- * @param {Number} to.x - The x value of our initial point
- * @param {Number} to.y - The y value of our initial point
- * @param {Object} from - Our final point
- * @param {Number} from.x - The x value of our final point
- * @param {Number} from.y - The y value of our final point
- * @param {Number} radius - The distance away from the final point
+ * @param to - Our initial point
+ * @param to.x - The x value of our initial point
+ * @param to.y - The y value of our initial point
+ * @param from - Our final point
+ * @param from.x - The x value of our final point
+ * @param from.y - The y value of our final point
+ * @param radius - The distance away from the final point
  *
- * @returns {Object} an object holding the x/y coordinates of the midpoint.
+ * @returns an object holding the x/y coordinates of the midpoint.
  */
 export function moveTo(to: Point, from: Point, radius: number): Point {
   const vector = { x: to.x - from.x, y: to.y - from.y };
@@ -60,12 +60,12 @@ export function moveTo(to: Point, from: Point, radius: number): Point {
  * Simple formula derived from pythagoras to calculate the distance between
  * 2 points on a plane.
  *
- * @param {Object} p1 - Our initial point
- * @param {Number} p1.x - The x value of our initial point
- * @param {Number} p1.y - The y value of our initial point
- * @param {Object} p2 - Our final point
- * @param {Number} p2.x - The x value of our final point
- * @param {Number} p2.y - The y value of our final point
+ * @param p1 - Our initial point
+ * @param p1.x - The x value of our initial point
+ * @param p1.y - The y value of our initial point
+ * @param p2 - Our final point
+ * @param p2.x - The x value of our final point
+ * @param p2.y - The y value of our final point
  *
  * @returns {Number} the distance between the points.
  */
@@ -75,17 +75,17 @@ export const getDistanceBetween = (p1: Point, p2: Point) =>
 /** checkForCollinearPoints
  * Figure out if the midpoint fits perfectly on a line between the two others.
  *
- * @param {Object} p1 - Our initial point
- * @param {Number} p1.x - The x value of our initial point
- * @param {Number} p1.y - The y value of our initial point
- * @param {Object} p2 - Our mid-point
- * @param {Number} p2.x - The x value of our mid-point
- * @param {Number} p2.y - The y value of our mid-point
- * @param {Object} p3 - Our final point
- * @param {Number} p3.x - The x value of our final point
- * @param {Number} p3.y - The y value of our final point
+ * @param p1 - Our initial point
+ * @param p1.x - The x value of our initial point
+ * @param p1.y - The y value of our initial point
+ * @param p2 - Our mid-point
+ * @param p2.x - The x value of our mid-point
+ * @param p2.y - The y value of our mid-point
+ * @param p3 - Our final point
+ * @param p3.x - The x value of our final point
+ * @param p3.y - The y value of our final point
 
- * @returns {Boolean} whether or not p2 sits on the line between p1 and p3.
+ * @returns whether or not p2 sits on the line between p1 and p3.
  */
 export const checkForCollinearPoints = (p1: Point, p2: Point, p3: Point) =>
   (p1.y - p2.y) * (p1.x - p3.x) === (p1.y - p3.y) * (p1.x - p2.x);

@@ -1,13 +1,20 @@
 import {
+  animate,
+  keyframes,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import {
   Component,
+  ElementRef,
   Input,
   OnChanges,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
-import { trigger, style, transition, animate, keyframes, state } from '@angular/animations';
 
-import { buildSmoothPath, buildLinearPath } from '../helpers/DOM.helpers';
+import { buildLinearPath, buildSmoothPath } from '../helpers/DOM.helpers';
 import { normalize } from '../helpers/math.helpers';
 import { generateId } from '../helpers/misc.helpers';
 import { normalizeDataset } from './trend.helpers';

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'slider',

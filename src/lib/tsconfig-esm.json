@@ -10,11 +10,11 @@
     "public_api.ts"
   ],
   "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableSummariesForJit": false,
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "ngx-trend"
+    "flatModuleId": "ngx-trend",
+    "annotationsAs": "decorators"
   }
 }
