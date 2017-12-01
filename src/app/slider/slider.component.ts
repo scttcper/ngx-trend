@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'slider',
@@ -26,5 +32,4 @@ export class SliderComponent {
   onChange(value) {
     this.valueChange.emit(value);
   }
-
 }
