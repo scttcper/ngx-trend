@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
   .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .header h1 {
     font-size: 46px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   `],
   template: `

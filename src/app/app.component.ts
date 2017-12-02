@@ -23,7 +23,15 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
   template: `
   <div class="app">
     <demo-header></demo-header>
-    <github-link class="cornerGithubLink"></github-link>
+    <div style="text-align: center;margin-bottom: 2rem;">
+      <mdo-github-button
+        size="large"
+        count="true"
+        user="scttcper"
+        repo="ngx-trend"
+        >
+      </mdo-github-button>
+    </div>
     <ngx-trend
       autoDraw="true"
       autoDrawDuration="3000"

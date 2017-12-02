@@ -1,6 +1,7 @@
 import { async, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdoButtonModule } from '@ctrl/ngx-github-buttons';
 
 import { NouisliderModule } from 'ng2-nouislider';
 
@@ -9,7 +10,6 @@ import { TrendModule } from '../lib/trend/trend.module';
 import { AppComponent } from './app.component';
 import { ConfigComponent } from './config/config.component';
 import { FooterComponent } from './footer/footer.component';
-import { GithubLinkComponent } from './github-link/github-link.component';
 import { GradientPreviewComponent } from './gradient-preview/gradient-preview.component';
 import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
@@ -23,7 +23,6 @@ describe('AppComponent', () => {
         AppComponent,
         ConfigComponent,
         FooterComponent,
-        GithubLinkComponent,
         GradientPreviewComponent,
         HeaderComponent,
         SliderComponent,
@@ -34,6 +33,7 @@ describe('AppComponent', () => {
         BrowserAnimationsModule,
 
         NouisliderModule,
+        MdoButtonModule,
 
         TrendModule,
       ],
