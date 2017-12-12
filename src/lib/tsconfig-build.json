@@ -9,22 +9,19 @@
     "rootDir": ".",
     "sourceMap": true,
     "inlineSources": true,
-    "declaration": false,
+    "declaration": true,
     "removeComments": false,
     "strictNullChecks": true,
     "skipLibCheck": true,
     "lib": ["es2015", "dom"],
     "moduleResolution": "node"
   },
-  "files": [
-    "public_api.ts"
-  ],
+  "files": ["public_api.ts"],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableSummariesForJit": true,
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "ngx-trend",
-    "annotationsAs": "decorators"
+    "flatModuleId": "ngx-trend"
   }
 }

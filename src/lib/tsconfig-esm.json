@@ -3,18 +3,15 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "../../dist/es5",
-    "declaration": true,
-    "removeComments": false
+    "declaration": false,
+    "removeComments": true
   },
-  "files": [
-    "public_api.ts"
-  ],
+  "files": ["public_api.ts"],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "enableSummariesForJit": false,
     "flatModuleOutFile": "index.js",
-    "flatModuleId": "ngx-trend",
-    "annotationsAs": "decorators"
+    "flatModuleId": "ngx-trend"
   }
 }
