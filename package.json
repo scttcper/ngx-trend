@@ -25,7 +25,7 @@
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
-    "@ctrl/ngx-github-buttons": "1.0.0",
+    "@ctrl/ngx-github-buttons": "1.0.1",
     "core-js": "^2.5.3",
     "ng2-nouislider": "1.7.6",
     "nouislider": "^10.1.0",
