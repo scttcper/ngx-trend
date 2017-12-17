@@ -66,7 +66,7 @@ export function moveTo(to: Point, from: Point, radius: number): Point {
  * @param p2.x - The x value of our final point
  * @param p2.y - The y value of our final point
  *
- * @returns {Number} the distance between the points.
+ * @returns the distance between the points.
  */
 export const getDistanceBetween = (p1: Point, p2: Point) =>
   Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
