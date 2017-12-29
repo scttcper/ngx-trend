@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'gradient-preview',
-  styles: [`
+  styles: [
+    `
   .gradientPreview {
     font-family: Times;
     position: relative;
@@ -21,15 +22,15 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
     border: 2px solid #111;
     box-shadow: none;
   }
-  `],
+  `,
+  ],
   template: `
   <button
     (click)="handleUpdate.next(['gradient', gradient])"
     class="gradientPreview"
     [class.isActive]="isActive"
     [style.background]="background"
-  >
-  </button>
+  ></button>
   `,
 })
 export class GradientPreviewComponent implements OnInit {
@@ -38,14 +39,12 @@ export class GradientPreviewComponent implements OnInit {
   @Input() handleUpdate: EventEmitter<any>;
   background = '';
 
-  constructor() { }
-
   ngOnInit() {
     // For simplicity, we're always passing a gradient, even when it's just 1
-  // color. We'll handle that discrepancy here.
-  this.background = this.gradient.length === 1
-    ? this.gradient[0]
-    : `linear-gradient(0deg, ${this.gradient.join(', ')})`;
+    // color. We'll handle that discrepancy here.
+    this.background =
+      this.gradient.length === 1
+        ? this.gradient[0]
+        : `linear-gradient(0deg, ${this.gradient.join(', ')})`;
   }
-
 }

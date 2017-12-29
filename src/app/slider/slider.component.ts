@@ -17,8 +17,7 @@ import {
     [step]="step"
     [ngModel]="value"
     (update)="onChange($event)"
-  >
-  </nouislider>
+  ></nouislider>
   `,
   encapsulation: ViewEncapsulation.None,
 })

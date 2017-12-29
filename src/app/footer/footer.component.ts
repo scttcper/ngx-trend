@@ -26,11 +26,6 @@ import { Component, OnInit, VERSION } from '@angular/core';
   }
   `],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   version = VERSION.full;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

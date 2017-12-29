@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'demo-header',
@@ -24,11 +24,4 @@ import { Component, OnInit } from '@angular/core';
   </header>
   `,
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class HeaderComponent { }

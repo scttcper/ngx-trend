@@ -37,7 +37,8 @@ describe('AppComponent', () => {
 
         TrendModule,
       ],
-    }).compileComponents();
+    });
+    TestBed.compileComponents();
   }));
 
   it('should create the app', async(() => {
