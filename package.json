@@ -64,7 +64,7 @@
     },
     {
       "path": "./dist/bundles/ngx-trend.umd.min.js",
-      "maxSize": "2 kB"
+      "maxSize": "3 kB"
     },
     {
       "path": "./dist/esm5/ngx-trend.js",
