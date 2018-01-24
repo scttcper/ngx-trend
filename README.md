@@ -262,3 +262,8 @@ Note that in _most_ cases it is sufficient to leave this blank, and just control
 ```ts
 <ngx-trend width="200" height="200"></ngx-trend>
 ```
+
+---
+
+> GitHub [@scttcper](https://github.com/scttcper) &nbsp;&middot;&nbsp;
+> Twitter [@scttcper](https://twitter.com/scttcper)
