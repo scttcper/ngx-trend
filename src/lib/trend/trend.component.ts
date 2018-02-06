@@ -147,7 +147,8 @@ export class TrendComponent implements OnChanges {
     this.svgWidth = this.width || '100%';
     this.svgHeight = this.height || '25%';
     this.viewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
-    this.pathStroke = (this.gradient && this.gradient.length) ? `url('${location.href}#${this.gradientId}` : undefined;
+    const root = location.href.split(location.hash || '#')[0];
+    this.pathStroke = (this.gradient && this.gradient.length) ? `url('${root}#${this.gradientId}')` : undefined;
 
     this.gradientTrimmed = this.gradient.slice().reverse().map((val, idx) => {
       return {
