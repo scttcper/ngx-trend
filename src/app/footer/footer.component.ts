@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { ChangeDetectionStrategy, Component, VERSION } from '@angular/core';
 
 @Component({
   selector: 'demo-footer',
@@ -25,6 +25,7 @@ import { Component, VERSION } from '@angular/core';
     }
   }
   `],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   version = VERSION.full;

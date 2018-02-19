@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Component({
   selector: 'gradient-preview',
@@ -32,6 +38,7 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
     [style.background]="background"
   ></button>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GradientPreviewComponent implements OnInit {
   @Input() gradient: string[];

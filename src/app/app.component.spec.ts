@@ -1,9 +1,9 @@
 import { async, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdoButtonModule } from '@ctrl/ngx-github-buttons';
 
-import { NouisliderModule } from 'ng2-nouislider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MdoButtonModule } from '@ctrl/ngx-github-buttons';
 
 import { TrendModule } from '../lib/trend/trend.module';
 
@@ -32,7 +32,7 @@ describe('AppComponent', () => {
         BrowserModule,
         BrowserAnimationsModule,
 
-        NouisliderModule,
+        MatSliderModule,
         MdoButtonModule,
 
         TrendModule,

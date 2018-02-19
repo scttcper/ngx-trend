@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatSliderModule } from '@angular/material/slider';
 import { MdoButtonModule } from '@ctrl/ngx-github-buttons';
-import { NouisliderModule } from 'ng2-nouislider';
 
 import { TrendModule } from '../lib/trend/trend.module';
 
@@ -29,7 +29,7 @@ import { TrendCodeComponent } from './trend-code/trend-code.component';
     BrowserModule,
     BrowserAnimationsModule,
 
-    NouisliderModule,
+    MatSliderModule,
     MdoButtonModule,
 
     TrendModule,

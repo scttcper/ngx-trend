@@ -5,7 +5,7 @@ import json from '../lib/package.json';
 
 const gradients = [
   ['#222'],
-  ['#42b3f4'],
+  ['#2196F3'],
   ['red', 'orange', 'yellow'],
   ['purple', 'violet'],
   ['#00c6ff', '#F0F', '#FF0'],

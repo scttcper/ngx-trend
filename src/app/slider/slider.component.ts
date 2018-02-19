@@ -1,25 +1,25 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
   selector: 'slider',
-  styleUrls: ['./slider.component.css'],
   template: `
-  <nouislider
-    [connect]="[true, true]"
-    [min]="min"
+  <mat-slider
+    class="example-margin"
     [max]="max"
+    [min]="min"
+    [thumb-label]="true"
     [step]="step"
-    [ngModel]="value"
-    (update)="onChange($event)"
-  ></nouislider>
+    [value]="value"
+    (input)="valueChange.emit($event.value)">
+  </mat-slider>
   `,
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderComponent {
   @Input() min: number;
@@ -27,8 +27,4 @@ export class SliderComponent {
   @Input() step: number;
   @Input() value: number;
   @Output() valueChange = new EventEmitter<number>();
-
-  onChange(value) {
-    this.valueChange.emit(value);
-  }
 }
