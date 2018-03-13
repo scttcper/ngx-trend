@@ -11,14 +11,11 @@
   <a href="https://codecov.io/github/scttcper/ngx-trend">
     <img src="https://img.shields.io/codecov/c/github/scttcper/ngx-trend.svg" alt="codecov">
   </a>
-  <a href="https://greenkeeper.io/">
-    <img src="https://badges.greenkeeper.io/scttcper/ngx-trend.svg" alt="greenkeeper">
-  </a>
+  <br>
+  <br>
+  <br>
 </div>
 
-<br>
-<br>
-<br>
 
 
 This is a port of the [react-trend](https://github.com/unsplash/react-trend) library by [unsplash](https://unsplash.com).
