@@ -30,6 +30,7 @@ import { normalizeDataset } from './trend.helpers';
     [attr.stroke-width]="strokeWidth"
     [attr.stroke-linecap]="strokeLinecap"
     [attr.viewBox]="viewBox"
+    [attr.preserveAspectRatio]="preserveAspectRatio"
   >
     <defs *ngIf="gradient && gradient.length">
       <linearGradient [attr.id]="gradientId"
@@ -103,6 +104,7 @@ export class TrendComponent implements OnChanges {
   @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
   @Input() gradient: string[] = [];
+  @Input() preserveAspectRatio: string;
   @ViewChild('pathEl') pathEl: ElementRef;
   gradientTrimmed: any[];
   d: any;
