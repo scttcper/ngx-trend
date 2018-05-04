@@ -10,15 +10,14 @@ script:
   - npm run bundlesize
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - npm run travis-deploy-once "npm run semantic-release"
   - npm run ghpages
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: dist
-  github_token: $PUSH_TOKEN
+  github_token: $GH_TOKEN
   on:
     branch: master
 notifications:
-  email:
-    on_success: never
-    on_failure: change
+  email: false
