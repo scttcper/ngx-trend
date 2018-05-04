@@ -17,7 +17,7 @@
     "commitlint": "commitlint -e $GIT_PARAMS",
     "travis-deploy-once": "travis-deploy-once",
     "commit": "git-cz",
-    "semantic-release": "cd dist/packages-dist && semantic-release"
+    "semantic-release": "cd dist && semantic-release"
   },
   "private": true,
   "dependencies": {
