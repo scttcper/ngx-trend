@@ -13,7 +13,7 @@ import {
     class="example-margin"
     [max]="max"
     [min]="min"
-    [thumb-label]="true"
+    [thumbLabel]="true"
     [step]="step"
     [value]="value"
     (input)="valueChange.emit($event.value)">

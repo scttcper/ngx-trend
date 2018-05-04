@@ -13,4 +13,3 @@ export const environment = {
 // In order to load these polyfills early enough (before app code), polyfill.ts imports this file to
 // to change the order in the final bundle.
 // import 'core-js/es7/reflect';
-

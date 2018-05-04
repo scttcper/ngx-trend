@@ -36,7 +36,7 @@ Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
 ### Installation
 
 ```bash
-$ npm i --save ngx-trend
+$ npm install ngx-trend
 ```
 
 ### Quickstart
