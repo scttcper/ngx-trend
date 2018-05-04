@@ -33,9 +33,7 @@ import { normalizeDataset } from './trend.helpers';
     [attr.preserveAspectRatio]="preserveAspectRatio"
   >
     <defs *ngIf="gradient && gradient.length">
-      <linearGradient [attr.id]="gradientId"
-        x1="0%" y1="0%" x2="0%" y2="100%"
-      >
+      <linearGradient [attr.id]="gradientId" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop
           *ngFor="let g of gradientTrimmed;"
           [attr.key]="g.idx"
@@ -58,10 +56,9 @@ import { normalizeDataset } from './trend.helpers';
   `,
   animations: [
     trigger('pathAnimaiton', [
-      state('inactive', style({
-        display: 'none',
-      })),
+      state('inactive', style({ display: 'none' })),
       transition('* => active', [
+        style({ display: 'initial' }),
         // We do the animation using the dash array/offset trick
         // https://css-tricks.com/svg-line-animation-works/
         animate('{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
@@ -129,7 +126,7 @@ export class TrendComponent implements OnChanges {
     // `data` can either be an array of numbers:
     // [1, 2, 3]
     // or, an array of objects containing a value:
-    // [ { value: 1 }, { value: 2 }, { value: 3 }]
+    // [{ value: 1 }, { value: 2 }, { value: 3 }]
     //
     // For now, we're just going to convert the second form to the first.
     // Later on, if/when we support tooltips, we may adjust.
