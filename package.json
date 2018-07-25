@@ -47,7 +47,7 @@
     "@types/fs-extra": "5.0.4",
     "@types/jasmine": "2.8.8",
     "@types/jasminewd2": "2.0.3",
-    "@types/node": "10.0.10",
+    "@types/node": "10.5.3",
     "@types/rimraf": "2.0.2",
     "codelyzer": "4.3.0",
     "fs-extra": "6.0.1",
