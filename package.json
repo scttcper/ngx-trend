@@ -87,7 +87,7 @@
   "bundlesize": [
     {
       "path": "./dist/bundles/ngx-trend.umd.js",
-      "maxSize": "5 kB"
+      "maxSize": "20 kB"
     },
     {
       "path": "./dist/bundles/ngx-trend.umd.min.js",
