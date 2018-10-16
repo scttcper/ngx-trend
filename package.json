@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ts-node build.ts",
+    "prebuild": "rimraf dist",
+    "build": "ts-node -O '{\"module\": \"commonjs\"}' build.ts",
     "publish": "cd dist && npm publish",
     "bundlesize": "npx bundlesize",
     "test": "ng test --watch=false --browsers=ChromeCI",
@@ -42,7 +43,6 @@
     "@types/fs-extra": "5.0.4",
     "@types/jasmine": "2.8.9",
     "@types/node": "10.12.0",
-    "@types/rimraf": "2.0.2",
     "codelyzer": "4.5.0",
     "fs-extra": "7.0.0",
     "jasmine-core": "3.2.1",
