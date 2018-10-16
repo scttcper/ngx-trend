@@ -12,77 +12,56 @@
     "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",
     "lint": "ng lint ngx-trend --type-check --format stylish",
     "lint:fix": "ng lint ngx-trend --type-check --fix --format stylish",
-    "e2e": "ng e2e",
     "ghpages": "ng build --prod --no-progress --baseHref='/ngx-trend/'",
-    "commitlint": "commitlint -e $GIT_PARAMS",
     "travis-deploy-once": "travis-deploy-once",
-    "commit": "git-cz",
     "semantic-release": "cd dist && semantic-release"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "6.1.6",
+    "@angular/animations": "6.1.10",
     "@angular/cdk": "6.4.7",
-    "@angular/common": "6.1.6",
-    "@angular/compiler": "6.1.6",
-    "@angular/core": "6.1.6",
-    "@angular/forms": "6.1.6",
+    "@angular/common": "6.1.10",
+    "@angular/compiler": "6.1.10",
+    "@angular/core": "6.1.10",
+    "@angular/forms": "6.1.10",
     "@angular/material": "6.4.7",
-    "@angular/platform-browser": "6.1.6",
-    "@angular/platform-browser-dynamic": "6.1.6",
-    "@angular/router": "6.1.6",
+    "@angular/platform-browser": "6.1.10",
+    "@angular/platform-browser-dynamic": "6.1.10",
+    "@angular/router": "6.1.10",
     "@ctrl/ngx-github-buttons": "2.0.4",
     "core-js": "2.5.7",
     "hammerjs": "2.0.8",
-    "rxjs": "6.2.2",
+    "rxjs": "6.3.3",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@angular/cli": "6.1.5",
-    "@angular/compiler-cli": "6.1.6",
-    "@angular/language-service": "6.1.6",
-    "@angular-devkit/build-angular": "0.7.5",
-    "@commitlint/cli": "7.0.0",
-    "@commitlint/config-conventional": "7.0.1",
+    "@angular/cli": "6.2.5",
+    "@angular/compiler-cli": "6.1.10",
+    "@angular/language-service": "6.1.10",
+    "@angular-devkit/build-angular": "0.8.5",
     "@types/fs-extra": "5.0.4",
-    "@types/jasmine": "2.8.8",
-    "@types/jasminewd2": "2.0.3",
-    "@types/node": "10.5.6",
+    "@types/jasmine": "2.8.9",
+    "@types/node": "10.12.0",
     "@types/rimraf": "2.0.2",
-    "codelyzer": "4.4.2",
+    "codelyzer": "4.5.0",
     "fs-extra": "7.0.0",
-    "jasmine-core": "2.99.1",
-    "karma": "2.0.5",
+    "jasmine-core": "3.2.1",
+    "karma": "3.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-cli": "1.0.1",
-    "karma-coverage-istanbul-reporter": "2.0.1",
+    "karma-coverage-istanbul-reporter": "2.0.4",
     "karma-jasmine": "1.1.2",
-    "karma-jasmine-html-reporter": "0.2.2",
-    "ng-packagr": "4.0.1",
+    "karma-jasmine-html-reporter": "1.3.1",
+    "ng-packagr": "4.3.1",
     "rimraf": "2.6.2",
-    "semantic-release": "15.9.5",
-    "travis-deploy-once": "5.0.2",
-    "ts-node": "7.0.0",
+    "semantic-release": "15.9.17",
+    "travis-deploy-once": "5.0.9",
+    "ts-node": "7.0.1",
     "tslint": "5.11.0",
     "typescript": "2.9.2"
   },
   "release": {
     "branch": "master"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "npm run commitlint"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   },
   "bundlesize": [
     {
