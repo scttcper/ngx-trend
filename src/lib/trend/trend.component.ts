@@ -102,11 +102,11 @@ export class TrendComponent implements OnChanges {
   @Input() strokeWidth = 1;
   @Input() gradient: string[] = [];
   @Input() preserveAspectRatio: string;
+  @Input() svgHeight: string | number = '25%';
+  @Input() svgWidth: string | number = '100%';
   @ViewChild('pathEl') pathEl: ElementRef;
   gradientTrimmed: any[];
   d: any;
-  svgWidth: string | number = '100%';
-  svgHeight: string | number = '25%';
   viewBox: string;
   pathStroke: any;
   gradientId: string;
