@@ -1,7 +1,4 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-
-import json from '../lib/package.json';
 
 const gradients = [
   ['#222'],
@@ -29,8 +26,7 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
         count="true"
         user="scttcper"
         repo="ngx-trend"
-        >
-      </mdo-github-button>
+      ></mdo-github-button>
     </div>
     <ngx-trend
       autoDraw="true"
@@ -42,22 +38,19 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
       [radius]="radius"
       [strokeWidth]="strokeWidth"
       [strokeLinecap]="strokeLinecap"
-    >
-    </ngx-trend>
+    ></ngx-trend>
 
     <div class="tabGroup">
       <button
         class="tab"
         (click)="changeView('config')"
-        [class.isActive]="view === 'config'"
-      >
+        [class.isActive]="view === 'config'">
         Configure
       </button>
       <button
         class="tab"
         (click)="changeView('code')"
-        [class.isActive]="view === 'code'"
-      >
+        [class.isActive]="view === 'code'">
         Code
       </button>
     </div>
@@ -70,8 +63,7 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
       [(radius)]="radius"
       [strokeLinecap]="strokeLinecap"
       [handleUpdate]="updateTrendParam"
-    >
-    </config>
+    ></config>
     <trend-code
       *ngIf="view === 'code'"
       [data]="placeholderData"
@@ -79,8 +71,7 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
       [radius]="radius"
       [strokeWidth]="strokeWidth"
       [strokeLinecap]="strokeLinecap"
-    >
-    </trend-code>
+    ></trend-code>
     <demo-footer></demo-footer>
   </div>
   `,
@@ -95,19 +86,11 @@ export class AppComponent implements OnInit {
   gradient = defaultGradient;
   strokeLinecap = defaultLinecap;
   updateTrendParam = new EventEmitter<[string, any]>();
-  constructor(title: Title) {
-    const current = title.getTitle();
-    // fix for tests
-    if (json) {
-      title.setTitle(`${current} ${json.version}`);
-    }
-  }
-
 
   changeView(view: string) {
     this.view = view;
   }
   ngOnInit() {
-    this.updateTrendParam.subscribe(([key, value]) => this[key] = value);
+    this.updateTrendParam.subscribe(([key, value]) => (this[key] = value));
   }
 }
