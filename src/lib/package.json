@@ -3,11 +3,11 @@
   "version": "0.0.0-placeholder",
   "description": "ngx-trend Angular component",
   "peerDependencies": {
-    "@angular/animations": ">=5.2.0",
-    "@angular/common": ">=5.2.0",
-    "@angular/core": ">=5.2.0"
+    "@angular/animations": "^5.2.0 || ^6.0.0 || ^7.0.0",
+    "@angular/common": "^5.2.0 || ^6.0.0 || ^7.0.0",
+    "@angular/core": "^5.2.0 || ^6.0.0 || ^7.0.0"
   },
-  "repository": "https://github.com/scttcper/ngx-trend.git",
+  "repository": "scttcper/ngx-trend",
   "homepage": "https://github.com/scttcper/ngx-trend",
   "license": "MIT",
   "bugs": "https://github.com/scttcper/ngx-trend/issues",
