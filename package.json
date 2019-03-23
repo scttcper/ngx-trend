@@ -16,6 +16,7 @@
     "semantic-release": "cd dist && semantic-release"
   },
   "private": true,
+  "repository": "scttcper/ngx-trend",
   "dependencies": {
     "@angular/animations": "7.2.10",
     "@angular/cdk": "7.3.5",
