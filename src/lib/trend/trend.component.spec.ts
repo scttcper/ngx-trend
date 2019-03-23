@@ -41,7 +41,7 @@ describe('TrendComponent', () => {
     component.ngOnChanges();
     fixture.detectChanges();
     const { svgWidth, svgHeight, viewBox } = component;
-    spyOn(component, 'ngOnChanges').and.returnValue(true);
+    spyOn(component, 'ngOnChanges').and.returnValue();
 
     expect(svgWidth).toEqual('100%');
     expect(svgHeight).toEqual('25%');
