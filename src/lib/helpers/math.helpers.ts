@@ -83,7 +83,6 @@ export const getDistanceBetween = (p1: Point, p2: Point) =>
  * @param p3 - Our final point
  * @param p3.x - The x value of our final point
  * @param p3.y - The y value of our final point
-
  * @returns whether or not p2 sits on the line between p1 and p3.
  */
 export const checkForCollinearPoints = (p1: Point, p2: Point, p3: Point) =>
