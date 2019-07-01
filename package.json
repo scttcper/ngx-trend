@@ -19,8 +19,8 @@
   "repository": "scttcper/ngx-trend",
   "dependencies": {
     "@angular/animations": "8.0.0-rc.3",
-    "@angular/cdk": "8.0.0",
-    "@angular/material": "8.0.0",
+    "@angular/cdk": "8.0.1",
+    "@angular/material": "8.0.1",
     "@angular/common": "8.0.0-rc.3",
     "@angular/compiler": "8.0.0-rc.3",
     "@angular/core": "8.0.0-rc.3",
