@@ -12,7 +12,7 @@
     "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "ghpages": "ng build --prod --no-progress --baseHref='/ngx-trend/'",
+    "ghpages": "ng build --prod --no-progress",
     "semantic-release": "cd dist && semantic-release"
   },
   "private": true,
