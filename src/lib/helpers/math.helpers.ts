@@ -8,7 +8,6 @@
  * @param max - the current maximum value possible
  * @param scaleMin - the min value of the scale we're translating to
  * @param scaleMax - the max value of the scale we're translating to
- *
  * @returns the value on its new scale
  */
 export function normalize(
@@ -42,7 +41,6 @@ export interface Point {
  * @param from.x - The x value of our final point
  * @param from.y - The y value of our final point
  * @param radius - The distance away from the final point
- *
  * @returns an object holding the x/y coordinates of the midpoint.
  */
 export function moveTo(to: Point, from: Point, radius: number): Point {
@@ -65,7 +63,6 @@ export function moveTo(to: Point, from: Point, radius: number): Point {
  * @param p2 - Our final point
  * @param p2.x - The x value of our final point
  * @param p2.y - The y value of our final point
- *
  * @returns the distance between the points.
  */
 export const getDistanceBetween = (p1: Point, p2: Point) =>

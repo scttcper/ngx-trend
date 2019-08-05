@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/scttcper/ngx-trend/master/misc/documentation-assets/ngx-trend-example.png" width="500" alt="Angular Trend">
   <br>
-  <h1>Angular Trend</h1>
+  <h1>ngx-trend</h1>
   <br>
   <a href="https://www.npmjs.org/package/ngx-trend">
     <img src="https://badge.fury.io/js/ngx-trend.svg" alt="npm">
@@ -22,7 +22,7 @@ This is a port of the [react-trend](https://github.com/unsplash/react-trend) lib
 
 ## Demo
 
-Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
+Check out the [ngx-trend playground](https://ngx-trend.netlify.com/).
 
 ## Features
 
@@ -35,9 +35,19 @@ Check out the [Angular Trend playground](https://scttcper.github.io/ngx-trend/).
 
 ### Installation
 
-```bash
-$ npm install ngx-trend
+```sh
+npm install ngx-trend
 ```
+
+## Dependencies
+
+Latest version available for each version of Angular
+
+| ngx-trend | Angular |
+| --------- | ------- |
+| 3.4.3     | 6.x 7.x |
+| 4.0.0     | 8.x     |
+
 
 ### Quickstart
 
