@@ -2,7 +2,6 @@ import { copySync } from 'fs-extra';
 import { build } from 'ng-packagr';
 import { join } from 'path';
 
-
 async function main() {
   // make common
   await build({
