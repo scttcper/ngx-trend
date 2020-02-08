@@ -46,7 +46,8 @@ Latest version available for each version of Angular
 | ngx-trend | Angular |
 | --------- | ------- |
 | 3.4.3     | 6.x 7.x |
-| 4.0.0     | 8.x     |
+| 4.0.2     | 8.x     |
+| current   | >= 9.x  |
 
 
 ### Quickstart
