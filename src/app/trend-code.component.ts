@@ -34,15 +34,14 @@ export class AppModule {{ '{' }} }
   `],
 })
 export class TrendCodeComponent implements OnChanges {
-  @Input() data: number[];
-  @Input() gradient: string[];
-  @Input() radius: number;
-  @Input() strokeWidth: number;
-  @Input() strokeLinecap: string;
+  @Input() data!: number[];
+  @Input() gradient!: string[];
+  @Input() radius!: number;
+  @Input() strokeWidth!: number;
+  @Input() strokeLinecap!: string;
   codeString = '';
-  constructor() { }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.codeString = `
 // your.component.ts
 import { Component } from '@angular/core';

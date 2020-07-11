@@ -6,7 +6,7 @@ export function normalizeDataset(
   maxX: number,
   minY: number,
   maxY: number,
-) {
+): Array<{ x: number; y: number }> {
   // For the X axis, we want to normalize it based on its index in the array.
   // For the Y axis, we want to normalize it based on the element's value.
   //

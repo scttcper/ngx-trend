@@ -1,58 +1,49 @@
-import {
-  animate,
-  keyframes,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnChanges,
-  ViewChild,
-} from '@angular/core';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
+import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 
 import { buildLinearPath, buildSmoothPath } from '../helpers/DOM.helpers';
 import { normalize } from '../helpers/math.helpers';
 import { generateId } from '../helpers/misc.helpers';
 import { normalizeDataset } from './trend.helpers';
 
-
 @Component({
   selector: 'ngx-trend',
   template: `
-  <svg *ngIf="data && data.length >= 2"
-    [attr.width]="svgWidth"
-    [attr.height]="svgHeight"
-    [attr.stroke]="stroke"
-    [attr.stroke-width]="strokeWidth"
-    [attr.stroke-linecap]="strokeLinecap"
-    [attr.viewBox]="viewBox"
-    [attr.preserveAspectRatio]="preserveAspectRatio"
-  >
-    <defs *ngIf="gradient && gradient.length">
-      <linearGradient [attr.id]="gradientId" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop
-          *ngFor="let g of gradientTrimmed;"
-          [attr.key]="g.idx"
-          [attr.offset]="g.offset"
-          [attr.stop-color]="g.stopColor"
-        />
-      </linearGradient>
-    </defs>
-    <path fill="none" #pathEl
-      [attr.stroke]="pathStroke" [attr.d]="d"
-      [@pathAnimaiton]="{
-        value: animationState,
-        params: {
-          autoDrawDuration: autoDrawDuration,
-          autoDrawEasing: autoDrawEasing,
-          lineLength: lineLength
-        }
-      }" />
-  </svg>
+    <svg
+      *ngIf="data && data.length >= 2"
+      [attr.width]="svgWidth"
+      [attr.height]="svgHeight"
+      [attr.stroke]="stroke"
+      [attr.stroke-width]="strokeWidth"
+      [attr.stroke-linecap]="strokeLinecap"
+      [attr.viewBox]="viewBox"
+      [attr.preserveAspectRatio]="preserveAspectRatio"
+    >
+      <defs *ngIf="gradient && gradient.length">
+        <linearGradient [attr.id]="gradientId" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop
+            *ngFor="let g of gradientTrimmed"
+            [attr.key]="g.idx"
+            [attr.offset]="g.offset"
+            [attr.stop-color]="g.stopColor"
+          />
+        </linearGradient>
+      </defs>
+      <path
+        fill="none"
+        #pathEl
+        [attr.stroke]="pathStroke"
+        [attr.d]="d"
+        [@pathAnimaiton]="{
+          value: animationState,
+          params: {
+            autoDrawDuration: autoDrawDuration,
+            autoDrawEasing: autoDrawEasing,
+            lineLength: lineLength
+          }
+        }"
+      />
+    </svg>
   `,
   animations: [
     trigger('pathAnimaiton', [
@@ -61,7 +52,8 @@ import { normalizeDataset } from './trend.helpers';
         style({ display: 'initial' }),
         // We do the animation using the dash array/offset trick
         // https://css-tricks.com/svg-line-animation-works/
-        animate('{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
+        animate(
+          '{{ autoDrawDuration }}ms {{ autoDrawEasing }}',
           keyframes([
             style({
               'stroke-dasharray': '{{ lineLength }}px',
@@ -88,36 +80,36 @@ import { normalizeDataset } from './trend.helpers';
 })
 export class TrendComponent implements OnChanges {
   id: number;
-  @Input() data: (number | {value: number})[];
-  @Input() smooth: boolean;
+  @Input() data?: Array<(number | { value: number })>;
+  @Input() smooth?: boolean;
   @Input() autoDraw = false;
   @Input() autoDrawDuration = 2000;
   @Input() autoDrawEasing = 'ease';
-  @Input() width: number;
-  @Input() height: number;
+  @Input() width?: number;
+  @Input() height?: number;
   @Input() padding = 8;
   @Input() radius = 10;
   @Input() stroke = 'black';
   @Input() strokeLinecap = '';
   @Input() strokeWidth = 1;
   @Input() gradient: string[] = [];
-  @Input() preserveAspectRatio: string;
+  @Input() preserveAspectRatio?: string;
   @Input() svgHeight: string | number = '25%';
   @Input() svgWidth: string | number = '100%';
-  @ViewChild('pathEl') pathEl: ElementRef;
-  gradientTrimmed: any[];
+  @ViewChild('pathEl') pathEl!: ElementRef;
+  gradientTrimmed!: Array<{ idx: number; stopColor: string; offset: number }>;
   d: any;
-  viewBox: string;
+  viewBox!: string;
   pathStroke: any;
   gradientId: string;
-  lineLength: number;
+  lineLength!: number;
   animationState = '';
 
   constructor() {
     this.id = generateId();
     this.gradientId = `ngx-trend-vertical-gradient-${this.id}`;
   }
-  ngOnChanges() {
+  ngOnChanges(): void {
     // We need at least 2 points to draw a graph.
     if (!this.data || this.data.length < 2) {
       return;
@@ -130,7 +122,7 @@ export class TrendComponent implements OnChanges {
     //
     // For now, we're just going to convert the second form to the first.
     // Later on, if/when we support tooltips, we may adjust.
-    const plainValues = this.data.map((point) => {
+    const plainValues = this.data.map(point => {
       if (typeof point === 'number') {
         return point;
       }
@@ -147,17 +139,22 @@ export class TrendComponent implements OnChanges {
     this.svgHeight = this.height || '25%';
     this.viewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
     const root = location.href.split(location.hash || '#')[0];
-    this.pathStroke = (this.gradient && this.gradient.length) ? `url('${root}#${this.gradientId}')` : undefined;
+    this.pathStroke =
+      this.gradient && this.gradient.length ? `url('${root}#${this.gradientId}')` : undefined;
 
-    this.gradientTrimmed = this.gradient.slice().reverse().map((val, idx) => {
-      return {
-        idx,
-        stopColor: val,
-        offset: normalize(idx, 0, this.gradient.length - 1 || 1),
-      };
-    });
+    this.gradientTrimmed = this.gradient
+      .slice()
+      .reverse()
+      .map((val, idx) => {
+        return {
+          idx,
+          stopColor: val,
+          offset: normalize(idx, 0, this.gradient.length - 1 || 1),
+        };
+      });
 
-    const normalizedValues = normalizeDataset(plainValues,
+    const normalizedValues = normalizeDataset(
+      plainValues,
       this.padding,
       viewBoxWidth - this.padding,
       // NOTE: Because SVGs are indexed from the top left, but most data is

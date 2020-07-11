@@ -41,12 +41,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GradientPreviewComponent implements OnInit {
-  @Input() gradient: string[];
-  @Input() isActive: boolean;
-  @Input() handleUpdate: EventEmitter<any>;
+  @Input() gradient!: string[];
+  @Input() isActive!: boolean;
+  @Input() handleUpdate!: EventEmitter<any>;
   background = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     // For simplicity, we're always passing a gradient, even when it's just 1
     // color. We'll handle that discrepancy here.
     this.background =

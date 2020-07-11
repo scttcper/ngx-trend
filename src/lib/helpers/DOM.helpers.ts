@@ -15,7 +15,7 @@ export const buildLinearPath = (data: Point[]) =>
     return `${path}${instruction} ${point.x},${point.y}\n`;
   }, '');
 
-export function buildSmoothPath(data: Point[], radius: number) {
+export function buildSmoothPath(data: Point[], radius: number): string {
   const [firstPoint, ...otherPoints] = data;
 
   return otherPoints.reduce((path, point, index) => {

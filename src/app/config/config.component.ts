@@ -56,13 +56,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
 })
 export class ConfigComponent {
-  @Input() gradients: string[][];
-  @Input() gradient: string[];
-  @Input() linecaps: string[];
-  @Input() strokeWidth: number;
-  @Input() radius: number;
-  @Input() strokeLinecap: string;
-  @Input() handleUpdate: EventEmitter<[string, string]>;
+  @Input() gradients!: string[][];
+  @Input() gradient!: string[];
+  @Input() linecaps!: string[];
+  @Input() strokeWidth!: number;
+  @Input() radius!: number;
+  @Input() strokeLinecap!: string;
+  @Input() handleUpdate!: EventEmitter<[string, string]>;
   @Output() strokeWidthChange = new EventEmitter<number>();
   @Output() radiusChange = new EventEmitter<number>();
 }

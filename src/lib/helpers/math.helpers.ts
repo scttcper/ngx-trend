@@ -16,7 +16,7 @@ export function normalize(
   max: number,
   scaleMin = 0,
   scaleMax = 1,
-) {
+): number {
   // If the `min` and `max` are the same value, it means our dataset is flat.
   // For now, let's assume that flat data should be aligned to the bottom.
   if (min === max) {
@@ -65,7 +65,7 @@ export function moveTo(to: Point, from: Point, radius: number): Point {
  * @param p2.y - The y value of our final point
  * @returns the distance between the points.
  */
-export const getDistanceBetween = (p1: Point, p2: Point) =>
+export const getDistanceBetween = (p1: Point, p2: Point): number =>
   Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 
 /** checkForCollinearPoints
@@ -82,5 +82,5 @@ export const getDistanceBetween = (p1: Point, p2: Point) =>
  * @param p3.y - The y value of our final point
  * @returns whether or not p2 sits on the line between p1 and p3.
  */
-export const checkForCollinearPoints = (p1: Point, p2: Point, p3: Point) =>
+export const checkForCollinearPoints = (p1: Point, p2: Point, p3: Point): boolean =>
   (p1.y - p2.y) * (p1.x - p3.x) === (p1.y - p3.y) * (p1.x - p2.x);

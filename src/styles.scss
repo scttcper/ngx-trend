@@ -23,6 +23,10 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // that you are using.
 @include mat-slider-theme($candy-app-theme);
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 
 .mat-slider-horizontal {
   width: 100%;
@@ -62,18 +66,9 @@ p {
   max-width: 700px;
 }
 
-.cornerGithubLink {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-}
-
 @media only screen and (max-width: 480px) {
   .app {
     padding: 0 0.5rem;
-  }
-  .cornerGithubLink {
-    display: none;
   }
 }
 

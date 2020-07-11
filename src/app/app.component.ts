@@ -18,62 +18,51 @@ const placeholderData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0];
 @Component({
   selector: 'app-root',
   template: `
-  <div class="app">
-    <demo-header></demo-header>
-    <div style="text-align: center;margin-bottom: 2rem;">
-      <mdo-github-button
-        size="large"
-        count="true"
-        user="scttcper"
-        repo="ngx-trend"
-      ></mdo-github-button>
-    </div>
-    <ngx-trend
-      autoDraw="true"
-      autoDrawDuration="3000"
-      autoDrawEasing="ease-out"
-      smooth="true"
-      [data]="placeholderData"
-      [gradient]="gradient"
-      [radius]="radius"
-      [strokeWidth]="strokeWidth"
-      [strokeLinecap]="strokeLinecap"
-    ></ngx-trend>
+    <div class="app">
+      <demo-header></demo-header>
+      <div style="text-align: center;margin-bottom: 2rem;">
+        <gh-button [count]="true" user="scttcper" repo="ngx-trend"></gh-button>
+      </div>
+      <ngx-trend
+        [autoDraw]="true"
+        [autoDrawDuration]="3000"
+        autoDrawEasing="ease-out"
+        [smooth]="true"
+        [data]="placeholderData"
+        [gradient]="gradient"
+        [radius]="radius"
+        [strokeWidth]="strokeWidth"
+        [strokeLinecap]="strokeLinecap"
+      ></ngx-trend>
 
-    <div class="tabGroup">
-      <button
-        class="tab"
-        (click)="changeView('config')"
-        [class.isActive]="view === 'config'">
-        Configure
-      </button>
-      <button
-        class="tab"
-        (click)="changeView('code')"
-        [class.isActive]="view === 'code'">
-        Code
-      </button>
+      <div class="tabGroup">
+        <button class="tab" (click)="changeView('config')" [class.isActive]="view === 'config'">
+          Configure
+        </button>
+        <button class="tab" (click)="changeView('code')" [class.isActive]="view === 'code'">
+          Code
+        </button>
+      </div>
+      <config
+        *ngIf="view === 'config'"
+        [gradients]="gradients"
+        [gradient]="gradient"
+        [linecaps]="linecaps"
+        [(strokeWidth)]="strokeWidth"
+        [(radius)]="radius"
+        [strokeLinecap]="strokeLinecap"
+        [handleUpdate]="updateTrendParam"
+      ></config>
+      <trend-code
+        *ngIf="view === 'code'"
+        [data]="placeholderData"
+        [gradient]="gradient"
+        [radius]="radius"
+        [strokeWidth]="strokeWidth"
+        [strokeLinecap]="strokeLinecap"
+      ></trend-code>
+      <demo-footer></demo-footer>
     </div>
-    <config
-      *ngIf="view === 'config'"
-      [gradients]="gradients"
-      [gradient]="gradient"
-      [linecaps]="linecaps"
-      [(strokeWidth)]="strokeWidth"
-      [(radius)]="radius"
-      [strokeLinecap]="strokeLinecap"
-      [handleUpdate]="updateTrendParam"
-    ></config>
-    <trend-code
-      *ngIf="view === 'code'"
-      [data]="placeholderData"
-      [gradient]="gradient"
-      [radius]="radius"
-      [strokeWidth]="strokeWidth"
-      [strokeLinecap]="strokeLinecap"
-    ></trend-code>
-    <demo-footer></demo-footer>
-  </div>
   `,
 })
 export class AppComponent implements OnInit {
@@ -87,10 +76,10 @@ export class AppComponent implements OnInit {
   strokeLinecap = defaultLinecap;
   updateTrendParam = new EventEmitter<[string, any]>();
 
-  changeView(view: string) {
+  changeView(view: string): void {
     this.view = view;
   }
-  ngOnInit() {
+  ngOnInit(): void {
     this.updateTrendParam.subscribe(([key, value]) => (this[key] = value));
   }
 }

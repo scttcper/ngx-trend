@@ -5,6 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'slider',
@@ -16,15 +17,19 @@ import {
     [thumbLabel]="true"
     [step]="step"
     [value]="value"
-    (input)="valueChange.emit($event.value)">
+    (input)="handleInput($event)">
   </mat-slider>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderComponent {
-  @Input() min: number;
-  @Input() max: number;
-  @Input() step: number;
-  @Input() value: number;
+  @Input() min!: number;
+  @Input() max!: number;
+  @Input() step!: number;
+  @Input() value!: number;
   @Output() valueChange = new EventEmitter<number>();
+
+  handleInput($event: MatSliderChange): void {
+    this.valueChange.emit($event.value as number);
+  }
 }
