@@ -1,4 +1,4 @@
-/* tslint:disable:quotemark */
+/* eslint-disable quotes, @typescript-eslint/quotes */
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
