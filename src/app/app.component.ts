@@ -80,6 +80,6 @@ export class AppComponent implements OnInit {
     this.view = view;
   }
   ngOnInit(): void {
-    this.updateTrendParam.subscribe(([key, value]) => (this[key] = value));
+    this.updateTrendParam.subscribe(([key, value]) => ((this as any)[key] = value));
   }
 }
