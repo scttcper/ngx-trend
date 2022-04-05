@@ -8,9 +8,9 @@
     "prebuild": "del dist",
     "build": "ts-node -O '{\"module\": \"commonjs\"}' build.ts",
     "publish": "cd dist && npm publish",
-    "test": "ng test --watch=false --browsers=ChromeCI",
-    "test:ci": "ng test --watch=false --code-coverage --no-progress --browsers=ChromeCI",
-    "lint": "ng lint",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
+    "test:ci": "ng test --watch=false --code-coverage --no-progress",
     "lint:fix": "ng lint --fix",
     "ghpages": "ng build --configuration production --no-progress"
   },
