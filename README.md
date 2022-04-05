@@ -40,13 +40,14 @@ npm install ngx-trend
 
 Latest version available for each version of Angular
 
-| ngx-trend | Angular |
-| --------- | ------- |
-| 3.4.3     | 6.x 7.x |
-| 4.0.2     | 8.x     |
-| 5.0.1     | 9.x     |
-| 6.1.1     | >= 10.x |
-| current   | >= 12.x |
+| ngx-trend | Angular   |
+| --------- | --------- |
+| 3.4.3     | 6.x 7.x   |
+| 4.0.2     | 8.x       |
+| 5.0.1     | 9.x       |
+| 6.1.1     | 10.x 11.x |
+| 7.0.0     | 12.x   |
+| current   | >= 13.x   |
 
 ### Quickstart
 
