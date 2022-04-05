@@ -46,7 +46,7 @@ Latest version available for each version of Angular
 | 4.0.2     | 8.x       |
 | 5.0.1     | 9.x       |
 | 6.1.1     | 10.x 11.x |
-| 7.0.0     | 12.x   |
+| 7.0.0     | 12.x      |
 | current   | >= 13.x   |
 
 ### Quickstart
